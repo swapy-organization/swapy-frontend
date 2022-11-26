@@ -10,3 +10,15 @@
 // 2. when the user clicks on the "Go to the login page" button, the user should be redirected to the login page
 // 3. when the user clicks on the "Go to the register page" button, the user should be redirected to the register page
 // make sure to show the items in the main section of the home page
+
+import React from 'react';
+
+function HomePage(props) {
+    return (
+        <div>
+            
+        </div>
+    );
+}
+
+export default HomePage;
