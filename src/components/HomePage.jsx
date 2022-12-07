@@ -10,3 +10,25 @@
 // 2. when the user clicks on the "Go to the login page" button, the user should be redirected to the login page
 // 3. when the user clicks on the "Go to the register page" button, the user should be redirected to the register page
 // make sure to show the items in the main section of the home page
+
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button, Heading, Text } from "@chakra-ui/react";
+import Navbar from "./NavBar/NavBar";
+import Services from "./NavBar/Services";
+import '../scss/App.scss';
+import '../scss/content.scss';
+import '../scss/navBar.scss';
+import Content from "./NavBar/Content";
+
+const HomePage = () => {
+  return (
+    <div>
+        <Navbar />
+        <Content />
+        <Services />
+    </div>
+  );
+};
+
+export default HomePage;

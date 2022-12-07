@@ -1,0 +1,138 @@
+.navbar {
+  background: #fff;
+  width: 100vw;
+  height: 80px;
+  //
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 0;
+  // THIS WILL show the navbar until the bottom of it, like in the dropdown menu
+  z-index: 999;
+  transition: top 0.8s;
+
+  // the effect of changing the color on scroll
+  &.active {
+    // top: -100px;
+    border-bottom: 2px solid #000;
+    // THIS WILL HIDE the navbar on top, like in the dropdown menu
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    max-width: 1500px;
+
+    .logo {
+      color: rgb(0, 0, 0);
+      justify-self: start;
+      letter-spacing: 15px;
+      margin-left: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      transition: 0.3s ease-in-out;
+
+      &.active {
+        color: yellow;
+        // top: -100px;
+        // border-bottom: 1px solid #000;
+        // THIS WILL HIDE the navbar on top, like in the dropdown menu
+      }
+      //
+    }
+
+    // nav-menu ul wrap
+    .nav-menu {
+      width: 60vw;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0 20px 0 10px;
+      list-style: none;
+
+      // links wrap
+      .nav-item {
+        height: 80px;
+        // links
+        .nav-links {
+          color: rgb(0, 0, 0);
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          height: 100%;
+
+          &:hover {
+            border-bottom: 4px solid yellow;
+            transition: all 0.2s ease-out;
+          }
+        }
+      }
+      //
+    }
+  }
+}
+
+/* So this was the problem  &.active
+  When you have something that looks like this in the
+  component:
+   
+  navbar active 
+  
+  2 classes 
+  
+  you should apply it like that:
+  
+  .navbar {
+    background: rgb(0, 38, 255);
+    height: 80px;
+    &.active {
+      background-color: seagreen;
+    }
+    */
+/*
+  
+  
+      // nav-menu ul wrap
+      .nav-menu {
+        width: 60vw;
+  
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0 20px 0 10px;
+  
+        // this way is better *** but i am not sure about the browsers compability
+        // display: grid;
+        // grid-template-columns: repeat(4, auto);
+        // grid-gap: 30px;
+        // justify-content: end;
+        // text-align: center;
+        // list-style: none;
+  
+        margin-right: 2rem;
+      }
+  
+  
+  
+  
+  
+      .nav-menu {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-gap: 30px;
+        list-style: none;
+        text-align: center;
+        width: 60vw;
+        justify-content: end;
+        margin-right: 2rem;
+      }
+  
+  */
