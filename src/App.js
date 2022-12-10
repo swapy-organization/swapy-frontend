@@ -6,18 +6,43 @@ import Signup from "./components/Signup";
 import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";
 import UserProfile from './components/UserProfile'
-function App() {
+import { useEffect, useState } from 'react';
 
+function App() {
+  const [isAuth, setIsAuth] = useState('');
+  
+  const checkAuth = () => {
+    setIsAuth(true);
+  }
+  
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token) {
+      setIsAuth(true);
+    }
+  }, [])
+  
+  const handleLogout=()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+  }
+  
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route exact path='/signup' element={<Signup/>} />
+          {/* <Route exact path='/signin' element={isAuth?<HomePage />:<Signin checkAuth={checkAuth} /> } /> */}
+          <Route exact path='/signin' element={<Signin/> } />
+          {/* <Route exact path='/items' element={isAuth?<HomePage/>:<Signin checkAuth={checkAuth} } /> */}
+        </Routes>
       <UserProfile />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+      <Footer/>
+      </BrowserRouter>
+    </div>
   );
 }
 
