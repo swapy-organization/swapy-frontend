@@ -5,13 +5,16 @@ import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";
+import UserProfile from './components/UserProfile'
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+      <UserProfile />
       </Routes>
       <Footer />
     </BrowserRouter>
@@ -19,3 +22,5 @@ function App() {
 }
 
 export default App;
+
+
