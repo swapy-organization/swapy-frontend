@@ -1,4 +1,3 @@
-//create the signin page
 import React, { useContext } from "react";
 import { AuthContext } from "../Context/authContext";
 import { useState } from "react";

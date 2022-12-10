@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-//
-// If you want to see the explanation of most of the functions,
-// click on the image in the readme of this project
-//
+
 function NavBar() {
   const [click, setClick] = useState(false);
   //  1_ related to the navbar change on scroll

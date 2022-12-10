@@ -1,7 +1,4 @@
-// create the authication context
-
 import axios from "axios";
-
 import { createContext, useState } from "react";
 import base64 from "base-64";
 import cookies from "react-cookies";
