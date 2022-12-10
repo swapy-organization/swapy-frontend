@@ -1,5 +1,5 @@
 import React from "react";
-import "react-responsive-modal/styles.css";
+import "@huksley/react-responsive-modal/styles.css";
 import { Modal } from "@huksley/react-responsive-modal";
 
 const PrivacyModal = (props) => {
