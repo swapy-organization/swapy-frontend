@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../Context/authContext";
+
 import {
   Flex,
   Box,
@@ -18,16 +18,19 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import NavBar from "../NavBar/NavBar";
+import { useAuth } from "../../ContextAPI/Context/authContext";
 
-export default function SignupCard() {
-  const [showPassword, setShowPassword] = useState(false);
-  const  handleSignUp  = useContext(AuthContext);
+export default function SignupCard () {
+  const [ showPassword, setShowPassword ] = useState( false );
+  const { handleSignUp } = useAuth();
   return (
     <Flex
       minH={'100vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+      bg={useColorModeValue( 'gray.50', 'gray.800' )}>
+      <NavBar />
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
@@ -39,13 +42,13 @@ export default function SignupCard() {
         </Stack>
         <Box
           rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
+          bg={useColorModeValue( 'white', 'gray.700' )}
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired onSubmit={handleSignUp}>
+                <FormControl id="firstName" isRequired onSubmit={e => handleSignUp( e )}>
                   <FormLabel>First Name</FormLabel>
                   <Input type="text" />
                 </FormControl>
@@ -69,7 +72,7 @@ export default function SignupCard() {
                   <Button
                     variant={'ghost'}
                     onClick={() =>
-                      setShowPassword((showPassword) => !showPassword)
+                      setShowPassword( ( showPassword ) => !showPassword )
                     }>
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                   </Button>
