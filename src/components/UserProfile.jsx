@@ -1,4 +1,3 @@
-'use strict'
 import { React, useState, useEffect } from "react"
 import axios from "axios"
 import cookies from "react-cookies";
@@ -16,17 +15,15 @@ function UserProfile() {
 
   const [data, setData] = useState([])
   console.log(data)
-  const id = {
-    id: cookies.load("id")
-  }
+  const id = cookies.load("id")
+  console.log(id)
   const getUserInfo = async () => {
-    const info = await axios.get(`http://localhost:3005/userprofile/1`)
+    const info = await axios.get(`${process.env.BACKEND_LINK}/userprofile/${id}`)
     setData([info.data.user])
 
   }
   useEffect(() => {
-    getUserInfo()
-
+    if (id) getUserInfo()
   }, [])
 
 
@@ -46,11 +43,9 @@ function UserProfile() {
               <main key={idx}>
                 <Container>
                   <VStack>
-
                     <Text color="black" fontSize="30px">This is the user profile</Text>
                   </VStack>
                   <Center>
-
                     <Image
                       borderRadius='full'
                       boxSize='150px'

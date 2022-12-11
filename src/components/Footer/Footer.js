@@ -1,6 +1,6 @@
 import React from "react";
-import "../App.css";
-import PrivacyModal from "./ModalView/PrivacyModal";
+import "../../App.css";
+import PrivacyModal from "../ModalView/PrivacyModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faYoutube,
@@ -16,7 +16,6 @@ const Footer = () => {
                 <div className="item1">
                     <PrivacyModal />
                 </div>
-
                 <div className="item2">
                     <span style={{ paddingRight: 5 }}>Copyright </span>
                     <FontAwesomeIcon icon={faCopyright} />{" "}
@@ -26,7 +25,7 @@ const Footer = () => {
                     </span>
                 </div>
                 <a
-                    href="https://github.com/sudiptob2/simple-react-footer"
+                    href="https://github.com/swapy-organization"
                     target="_blank"
                     className="item3"
                 >
