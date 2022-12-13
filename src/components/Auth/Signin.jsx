@@ -2,8 +2,7 @@ import React, { useContext, useState } from "react";
 import { Flex, Heading, Input, Button, InputGroup, Stack, InputLeftElement } from "@chakra-ui/react";
 import { chakra, Box, Link, Avatar, FormControl, FormHelperText, InputRightElement } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-// import { AuthContext } from "../../ContextAPI/Context/authContext";
-import NavBar from "../NavBar/NavBar";
+import  AuthContext from "../../ContextAPI/Context/authContext";
 
 const CFaUserAlt = chakra( FaUserAlt );
 const CFaLock = chakra( FaLock );
@@ -14,16 +13,15 @@ const Signin = () => {
   const [ showPassword, setShowPassword ] = useState( false );
   const handleShowClick = () => setShowPassword( !showPassword );
 
-  // const handleLogin = useContext( AuthContext );
+  const handleSignUp = useContext( AuthContext );
 
 
   return (
     <Flex flexDirection="column" width="100wh" height="100vh" backgroundColor="gray.200" justifyContent="center" alignItems="center">
-      <NavBar />
       <Stack flexDir="column" mb="2" justifyContent="center" alignItems="center">
         <Avatar bg="teal.500" />
         <Heading color="teal.400">Welcome</Heading>
-        <Box minW={{ base: "90%", md: "468px" }}>
+        <Box minW={{ base: "90%", md: "468px" }} onSubmit={handleSignUp}>
           <form>
             <Stack spacing={4} p="1rem" backgroundColor="whiteAlpha.900" boxShadow="md">
               <FormControl>
