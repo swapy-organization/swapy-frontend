@@ -50,6 +50,7 @@ function UserProfile () {
                 <Button bg='tomato' m={1}> Save Change</Button>
               </FormControl>
             </Box>
+              <Text fontSize={20} alignContent='center'>{data.user.points} Points for {data.user.username}</Text>
           </HStack>
           <HStack>
             {data.user.items ? data.user.items.map( ( item ) => {
