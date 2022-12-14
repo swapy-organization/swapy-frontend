@@ -1,7 +1,5 @@
-'use strict'
-import { React, useState, useEffect } from "react"
-import axios from "axios"
-import cookies from "react-cookies";
+import { React, useState, useEffect } from "react";
+import axios from "axios";
 import {
   Image,
   Center,
@@ -12,68 +10,73 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Textarea
 } from '@chakra-ui/react';
-function UserProfile() {
-  const [data, setData] = useState([])
-  console.log(data)
-  const id = {
-    id: cookies.load("id")
-  }
+import NavBar from "./NavBar/NavBar";
+function UserProfile () {
+  const [ data, setData ] = useState();
   const getUserInfo = async () => {
-    const info = await axios.get(`https://swapybackend.herokuapp.com/userprofile/2`)
-    setData([info.data.user])
-  }
-  useEffect(() => {
-    getUserInfo()
-  }, [])
+    const info = await axios.get( `${process.env.REACT_APP_BACKEND_LINK}/userinfo/${localStorage.getItem( 'id' )}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem( 'token' )}`
+        }
+      }
+    );
+    setData( info.data );
+  };
+  useEffect( () => {
+    getUserInfo();
+  }, [] );
   return (
     <>
+      <NavBar />
       <Box bg='tomato' w='100%' p={5} color='white'>
         <Center>
           <Text color="white" fontSize={25}>User Profile</Text>
         </Center>
       </Box>
       {data &&
-        data.map((info, idx) => {
-          return (
-            <>
-              <HStack>
-                <Image src='https://bit.ly/dan-abramov' p={2} alt='Dan Abramov' />
-                <Box>
-                  <FormControl borderColor='tomato' p={5} isRequired>
-                    <FormLabel> User</FormLabel>
-                    <Input placeholder={info.username} />
-                    <FormLabel>Location</FormLabel>
-                    <Input placeholder={`${info.country}  / ${info.city}`} />
-                    <FormLabel >User interestes</FormLabel>
-                    <Input m={.5} placeholder='Cars' />
-                    <FormLabel> Bio</FormLabel>
-                    <Textarea
-                      placeholder='bio'
-                      size='sm' />
-                    <Button bg='tomato' m={1}> Save Change</Button>
-                    <Button bg='tomato'>Delete User</Button>
-                  </FormControl>
+        <>
+          <HStack>
+            <Image src={data.user.avatar} p={2} alt={data.user.username} h={150} w={150} />
+            <Box>
+              <FormControl borderColor='tomato' p={5} isRequired>
+                <FormLabel> User</FormLabel>
+                <Input placeholder={data.user.username} type='text' />
+                <FormLabel>Location</FormLabel>
+                <Input placeholder={`${data.user.country}  / ${data.user.city}`} type='text' />
+                <FormLabel> Email</FormLabel>
+                <Input placeholder={data.user.email} type='text' />
+                <Button bg='tomato' m={1}> Save Change</Button>
+              </FormControl>
+            </Box>
+          </HStack>
+          <HStack>
+            {data.user.items ? data.user.items.map( ( item ) => {
+              return (
+                <Box key={item.id}
+                  bg='tomato'
+                  w='100%'
+                  p={5}
+                  color='white'
+                  m={2}
+                  borderRadius='md'
+                >
+                  {item.uploadedImages && item.uploadedImages.map( ( image, idx ) => {
+                    return (
+                      <Image src={image} p={2} alt={item.name} h={150} w={150} key={idx} />
+                    );
+                  } )}
+                  <Text fontSize={20}>{item.name}</Text>
+                  <Text fontSize={15}>{item.description}</Text>
+                  <Text fontSize={15}>{item.price}</Text>
                 </Box>
-              </HStack>
-              {/* {
-                info.items.map((ITEM, idx) => {
-                  return (
-                    <div key={idx}>
-                      {console.log(ITEM)}
-                    </div>
-                  )
-                })
-              } */}
-              <HStack>
-                <Text m={1}>this use didn't have items</Text>
-              </HStack>
-            </>
-          )
-        })
+              );
+            } ) : <Text> No Items</Text>}
+          </HStack>
+        </>
       }
     </>
-  )
+  );
 }
-export default UserProfile
+export default UserProfile;

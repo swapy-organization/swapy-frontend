@@ -4,13 +4,12 @@ import { Link } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserCircle,
-  faUser,
   faEnvelope,
   faLock,
   faUserTie,
   faCity,
 } from "@fortawesome/free-solid-svg-icons";
-import { Flex, Spinner,Box } from "@chakra-ui/react";
+import { Flex,Box } from "@chakra-ui/react";
 import {
   Heading,
   Stack,
@@ -28,18 +27,21 @@ import { useAuth } from "../../ContextAPI/Context/authContext";
 
 export default function SignupCard() {
   // const [ showPassword, setShowPassword ] = useState( false );
-  const { handleSignUp, showSpinner } = useAuth();
-
+  const { handleSignUp, auth } = useAuth();
+  console.log( auth );
   return (
     <Flex h="50px">
       <Center
-        h="120vh"
+        h="100vh"
         w="100%"
         bg={"url(https://wallpaperaccess.com/full/193861.jpg)"}
         width="100%"
+        bgSize="cover"
+        repeat="no-repeat"
+        overflow="hidden"
       >
         <Stack
-          opacity="0.7"
+          opacity="0.9"
           boxShadow="md"
           alignItems="center"
           bg={"#fdf9ff"}
@@ -47,13 +49,13 @@ export default function SignupCard() {
           rounded="md"
         >
           <Heading as="h1" color="black">
-            SIGN UP NOW{" "}
+            SIGN UP NOW
           </Heading>
           <Text fontSize="lg" color="black">
             You like swapping? Join Us
           </Text>
           <Stack justify="center" color="gray">
-            <Form onSubmit={handleSignUp}>
+            <Form onSubmit={e => handleSignUp(e)}>
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
@@ -61,12 +63,12 @@ export default function SignupCard() {
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={
@@ -76,7 +78,7 @@ export default function SignupCard() {
                   <Input
                     type="text"
                     id="username"
-                    h="25px"
+                    h="35px"
                     variant="filled"
                     width="300px"
                     borderX="none"
@@ -94,12 +96,12 @@ export default function SignupCard() {
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={
@@ -109,7 +111,7 @@ export default function SignupCard() {
                   <Input
                     type="text"
                     id="firstname"
-                    h="25px"
+                    h="35px"
                     variant="filled"
                     width="300px"
                     borderX="none"
@@ -127,12 +129,12 @@ export default function SignupCard() {
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={
@@ -143,7 +145,7 @@ export default function SignupCard() {
                     type="text"
                     id="lastname"
                     variant="filled"
-                    h="25px"
+                    h="35px"
                     width="300px"
                     borderX="none"
                     borderBlockEnd="none"
@@ -158,16 +160,16 @@ export default function SignupCard() {
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
-                  h="25px"
+                  h="35px"
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={
@@ -177,7 +179,7 @@ export default function SignupCard() {
                   <Input
                     type="email"
                     placeholder="Email"
-                    h="25px"
+                    h="35px"
                     id="email"
                     variant="filled"
                     width="300px"
@@ -189,29 +191,29 @@ export default function SignupCard() {
                 </InputGroup>
               </FormControl>
 
-              <FormControl pb="1em" borderColor="black" isRequired>
+              {/* <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={
                       <FontAwesomeIcon color="black" icon={faUserTie} />
                     }
                   />
-                  <Input
+                  {/* <Input
                     type="file"
                     placeholder="Avatar"
-                    h="25px"
+                    h="35px"
                     id="avatar"
                     variant="filled"
                     width="300px"
@@ -219,10 +221,10 @@ export default function SignupCard() {
                     borderBlockEnd="none"
                     borderBlock="none"
                     pr="5rem"
-                  />
-                </InputGroup>
-              </FormControl>
-
+                  /> */}
+                {/* </InputGroup> */}
+              {/* </FormControl> */} 
+                  <input type="file" name="avatar" />
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
@@ -230,12 +232,12 @@ export default function SignupCard() {
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={<FontAwesomeIcon color="black" icon={faLock} />}
@@ -243,7 +245,7 @@ export default function SignupCard() {
                   <Input
                     type="password"
                     id="password"
-                    h="25px"
+                    h="35px"
                     placeholder="********"
                     variant="filled"
                     width="300px"
@@ -254,7 +256,6 @@ export default function SignupCard() {
                   />
                 </InputGroup>
               </FormControl>
-
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
@@ -262,12 +263,12 @@ export default function SignupCard() {
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={<FontAwesomeIcon color="black" icon={faLock} />}
@@ -275,7 +276,7 @@ export default function SignupCard() {
                   <Input
                     type="password"
                     id="confirmPassword"
-                    h="25px"
+                    h="35px"
                     placeholder="********"
                     variant="filled"
                     width="300px"
@@ -294,12 +295,12 @@ export default function SignupCard() {
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={<FontAwesomeIcon color="black" icon={faCity} />}
@@ -307,7 +308,7 @@ export default function SignupCard() {
                   <Input
                     type="text"
                     id="country"
-                    h="25px"
+                    h="35px"
                     placeholder="Country"
                     variant="filled"
                     width="300px"
@@ -325,12 +326,12 @@ export default function SignupCard() {
                   borderBlock="cadetblue"
                   bg="#e8f0fe"
                   width="305px"
-                  height="30px"
+                  height="35px"
                 >
                   <InputLeftAddon
                     pointerEvents="none"
                     width="30px"
-                    height="30px"
+                    height="35px"
                     border="none"
                     justifyContent="center"
                     children={<FontAwesomeIcon color="black" icon={faCity} />}
@@ -356,24 +357,13 @@ export default function SignupCard() {
                 type="submit"
                 width="305px"
                 color="black"
-                height="30px"
+                height="35px"
                 bg="#d0b4fb"
                 borderX="none"
                 borderY="none"
                 boxShadow="0 0 0 3px var(--chakra-colors-purple)"
                 variant="solid"
-              >
-                <FontAwesomeIcon icon={<FontAwesomeIcon icon={faUser} />} />{" "}
-                &nbsp; Sign up Now
-                {showSpinner ? (
-                  <Spinner
-                    thickness="4px"
-                    speed="0.65s"
-                    emptyColor="gray.200"
-                    color="blue.500"
-                    size="xl"
-                  />
-                ) : null}
+              > Sign up Now
               </Button>
               <Box>
         Already have an account?{" "}
