@@ -11,7 +11,7 @@ const HomePage = () => {
     <div>
         <Navbar />
         <Content />
-        <Services />
+        {/* <Services /> */}
     </div>
   );
 };
