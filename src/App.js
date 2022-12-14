@@ -30,6 +30,7 @@ function App () {
     <div className="App">
       {auth.error && <ErrorHandler error={auth.error.message} />}
       <Routes>
+        
         <Route path="/" element={<HomePage />} />
         <Route exact path="/signin" element={<Signin />} />
         <Route exact path='/signup' element={<Signup />} />

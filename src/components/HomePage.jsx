@@ -5,11 +5,22 @@ import '../scss/App.scss';
 import '../scss/content.scss';
 import '../scss/navBar.scss';
 import Content from "./NavBar/Content";
+import IndexHeader from "components/Header/IndexHeader";
 
-const HomePage = () => {
+// styles
+import "assets/scss/paper-kit.scss?v=1.3.0";
+import "assets/demo/demo.css?v=1.3.0";
+import SectionNucleoIcons from "./Nucleoicons/SectionNucleoIcons";
+import SectionDownload from "./Nucleoicons/SectionDownload";
+/* import SectionExamples from "./Nucleoicons/SectionExamples";
+ */const HomePage = () => {
   return (
     <div>
         <Navbar />
+        <IndexHeader />
+        <SectionNucleoIcons />
+        <SectionDownload />
+        {/* <SectionExamples  /> */}
         <Content />
         {/* <Services /> */}
     </div>
