@@ -12,6 +12,7 @@ import {
   Input,
 } from '@chakra-ui/react';
 import NavBar from "./NavBar/NavBar";
+import Footer from "./Footer/Footer";
 function UserProfile () {
   const [ data, setData ] = useState();
   const getUserInfo = async () => {
@@ -32,7 +33,7 @@ function UserProfile () {
       <NavBar />
       <Box bg='tomato' w='100%' p={5} color='white'>
         <Center>
-          <Text color="white" fontSize={25}>User Profile</Text>
+          <Text color="black" fontSize={25} marginTop={100}>User Profile</Text>
         </Center>
       </Box>
       {data &&
@@ -71,10 +72,13 @@ function UserProfile () {
                   <Text fontSize={20}>{item.name}</Text>
                   <Text fontSize={15}>{item.description}</Text>
                   <Text fontSize={15}>{item.price}</Text>
+                <Button bg='black' m={1} > Delete Item</Button>
+                <Button bg='black' m={1}> Edit Item</Button>
                 </Box>
               );
             } ) : <Text> No Items</Text>}
           </HStack>
+          <Footer/>
         </>
       }
     </>

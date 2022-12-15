@@ -4,11 +4,11 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Signin from "./components/Auth/Signin";
 import Signup from "./components/Auth/Signup";
 import HomePage from "./components/HomePage";
-import Footer from "./components/Footer/Footer";
 import UserProfile from './components/UserProfile';
 import { useEffect, useState } from 'react';
 import { useAuth } from "./ContextAPI/Context/authContext";
 import ErrorHandler from "./errorNotify";
+import AddItemPage from "./components/itemsCRUD/addItem";
 
 function App () {
   const [ isAuth, setIsAuth ] = useState( false );
@@ -36,8 +36,8 @@ function App () {
         <Route exact path='/signup' element={<Signup />} />
         {/* <Route exact path='/signin' element={<Signin />} /> */}
         <Route exact path='/userprofile' element={isAuth ? <UserProfile /> : <Signin />} />
+        <Route exact path='/additem' element={isAuth ? <AddItemPage /> : <Signin />} />
       </Routes>
-      <Footer />
     </div>
   );
 }
