@@ -1,6 +1,8 @@
 
 /*eslint-disable*/
+import { Button } from "bootstrap";
 import React from "react";
+import { Link } from "react-router-dom";
 
 // reactstrap components
 import { Container } from "reactstrap";
@@ -42,6 +44,11 @@ function IndexHeader() {
         />
         
       </div>
+      {/* <Link to="/additem">
+      <button className="call-to-action" type="button" >
+        Add Item to Swap or Sell
+      </button>
+      </Link> */}
     </>
   );
 }

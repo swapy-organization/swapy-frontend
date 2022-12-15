@@ -61,7 +61,8 @@ function NavBar() {
                 Services
               </Link>
             </li>
-
+            {localStorage.getItem("isAuth") === 'true' ? 
+            <>
             <li className="nav-item">
               <Link
                 to="/userprofile"
@@ -71,7 +72,24 @@ function NavBar() {
                 Profile
               </Link>
             </li>
-
+            <li className="nav-item">
+              <Link
+                to="/"
+                className="nav-links"
+                onClick={() => {
+                  localStorage.removeItem("isAuth");
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("id");
+                  localStorage.removeItem("username");
+                  closeMobileMenu();
+                }}
+              >
+                Log Out
+              </Link>
+            </li>
+            </>
+            : 
+              <>
             <li className="nav-item">
               <Link
                 to="/signup"
@@ -90,6 +108,8 @@ function NavBar() {
                 Log In
               </Link>
             </li>
+            </>
+            }
           </ul>
         </div>
       </nav>

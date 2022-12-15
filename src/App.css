@@ -1,6 +1,7 @@
 a {
   color: inherit;
 }
+
 .item1 {
   border: none;
   background-color: inherit;
@@ -11,13 +12,16 @@ a {
   justify-content: left;
   align-items: center;
 }
+
 .item1:hover {
   text-decoration: none;
   color: #48976a;
 }
+
 .item1:focus {
   outline: 0;
 }
+
 .item2 {
   background: rgba(49, 49, 54, 0.993);
   color: rgb(190, 190, 190);
@@ -35,10 +39,12 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .item3:hover {
   background-color: #000000;
   transition: 0.4s;
 }
+
 .item4 {
   font-size: 20px;
   background: #25252b;
@@ -46,10 +52,12 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .item4:hover {
   background-color: #4267b2;
   transition: 0.4s;
 }
+
 .item5 {
   font-size: 20px;
   background: #202025;
@@ -57,6 +65,7 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .item5:hover {
   background-color: #da0e0e;
   transition: 0.4s;
@@ -64,6 +73,8 @@ a {
 
 .footer-container {
   color: aliceblue;
+  position: relative;
+  bottom: 0;
   text-align: center;
   background-color: rgba(49, 49, 54, 0.993);
   font-size: 15px;
@@ -76,80 +87,90 @@ a {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .item1 {
-      font-size: 12px;
-      padding-left: 3px;
+    font-size: 12px;
+    padding-left: 3px;
   }
+
   .item2 {
-      font-size: 7px;
+    font-size: 7px;
   }
+
   .item3,
   .item4,
   .item5 {
-      font-size: 12px;
+    font-size: 12px;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .item1 {
-      font-size: 14px;
-      padding-left: 5px;
+    font-size: 14px;
+    padding-left: 5px;
   }
+
   .item2 {
-      font-size: 9px;
+    font-size: 9px;
   }
+
   .item3,
   .item4,
   .item5 {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .item1 {
-      font-size: 16px;
-      padding-left: 6px;
+    font-size: 16px;
+    padding-left: 6px;
   }
+
   .item2 {
-      font-size: 11px;
+    font-size: 11px;
   }
+
   .item3,
   .item4,
   .item5 {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .item1 {
-      font-size: 18px;
-      padding-left: 8px;
+    font-size: 18px;
+    padding-left: 8px;
   }
+
   .item2 {
-      font-size: 13px;
+    font-size: 13px;
   }
+
   .item3,
   .item4,
   .item5 {
-      font-size: 18px;
+    font-size: 18px;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .item1 {
-      font-size: 20px;
-      padding-left: 10px;
+    font-size: 20px;
+    padding-left: 10px;
   }
+
   .item2 {
-      font-size: 15px;
+    font-size: 15px;
   }
+
   .item3,
   .item4,
   .item5 {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
 
@@ -159,6 +180,7 @@ a {
   position: relative;
   min-height: 100vh;
 }
+
 .content-wrap {
   /* Leave space for the footer. Important */
   padding-bottom: 4rem;
@@ -179,16 +201,17 @@ a {
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-      animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear;
   }
 }
 
 @keyframes App-logo-spin {
   from {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   to {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -226,4 +249,22 @@ a {
 .notification,
 .notification .closeButton {
   color: #fff;
+}
+
+/* call to action button */
+.call-to-action {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 10px;
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 }
