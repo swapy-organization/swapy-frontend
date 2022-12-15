@@ -9,21 +9,22 @@ import { useEffect, useState } from 'react';
 import { useAuth } from "./ContextAPI/Context/authContext";
 import ErrorHandler from "./errorNotify";
 import AddItemPage from "./components/itemsCRUD/addItem";
+import EditItemPage from "./components/itemsCRUD/editItem";
 
 function App () {
-  const [ isAuth, setIsAuth ] = useState( false );
+  const [ isAuth, setIsAuth ] = useState( true );
   const navigate = useNavigate();
   const navegateTo = () => {
     navigate( '/' );
   };
   const { auth } = useAuth();
-  useEffect( () => {
-    const authCheck = localStorage.getItem( "isAuth" );
-    if ( authCheck === 'true' ) {
-      setIsAuth( true );
-      navegateTo();
-    }
-  }, [auth] );
+  // useEffect( () => {
+  //   const authCheck = localStorage.getItem( "isAuth" );
+  //   if ( authCheck === 'true' ) {
+  //     setIsAuth( true );
+  //     navegateTo();
+  //   }
+  // }, [auth] );
 
 
   return (
@@ -37,6 +38,7 @@ function App () {
         {/* <Route exact path='/signin' element={<Signin />} /> */}
         <Route exact path='/userprofile' element={isAuth ? <UserProfile /> : <Signin />} />
         <Route exact path='/additem' element={isAuth ? <AddItemPage /> : <Signin />} />
+        <Route path='edititem/:id' element={isAuth ? <EditItemPage /> : <Signin />} />
       </Routes>
     </div>
   );

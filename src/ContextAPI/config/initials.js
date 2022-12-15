@@ -4,3 +4,9 @@ export const authData = {
     isLoading: false,
     error: null,
 };
+
+export const itemData = {
+    items: [],
+    isLoading: false,
+    error: null,
+};

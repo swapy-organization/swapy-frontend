@@ -44,11 +44,11 @@ function IndexHeader() {
         />
         
       </div>
-      {/* <Link to="/additem">
+      <Link to="/additem">
       <button className="call-to-action" type="button" >
         Add Item to Swap or Sell
       </button>
-      </Link> */}
+      </Link>
     </>
   );
 }

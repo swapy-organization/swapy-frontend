@@ -13,8 +13,11 @@ import {
 } from '@chakra-ui/react';
 import NavBar from "./NavBar/NavBar";
 import Footer from "./Footer/Footer";
+import { Link } from "react-router-dom";
 function UserProfile () {
   const [ data, setData ] = useState();
+
+
   const getUserInfo = async () => {
     const info = await axios.get( `${process.env.REACT_APP_BACKEND_LINK}/userinfo/${localStorage.getItem( 'id' )}`,
       {
@@ -25,6 +28,14 @@ function UserProfile () {
     );
     setData( info.data );
   };
+
+  const handleDelete = async ( e,id ) => {
+    e.preventDefault();
+    await axios.delete( `${process.env.REACT_APP_BACKEND_LINK}/items/${id}`);
+    getUserInfo();
+  };
+      
+
   useEffect( () => {
     getUserInfo();
   }, [] );
@@ -72,8 +83,10 @@ function UserProfile () {
                   <Text fontSize={20}>{item.name}</Text>
                   <Text fontSize={15}>{item.description}</Text>
                   <Text fontSize={15}>{item.price}</Text>
-                <Button bg='black' m={1} > Delete Item</Button>
+                <Button bg='black' m={1} onClick={e => handleDelete(e, item.id)}> Delete Item</Button>
+                <Link to={`/edititem/${item.id}`}>
                 <Button bg='black' m={1}> Edit Item</Button>
+                </Link>
                 </Box>
               );
             } ) : <Text> No Items</Text>}
