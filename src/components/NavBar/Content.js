@@ -2,6 +2,7 @@ import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Grid, GridIte
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Content = () => {
   const [ items, setItems ] = useState( [] );
   const getItems = async () => {
@@ -50,7 +51,9 @@ const Content = () => {
               <CardFooter>
                 <ButtonGroup spacing='2'>
                   <Button variant='solid' colorScheme='blue'>
+                    <Link to={`/swap/${item.id}`}>
                     Buy or Swap now
+                    </Link>
                   </Button>
                 </ButtonGroup>
               </CardFooter>
