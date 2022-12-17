@@ -1,8 +1,10 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Grid, GridItem, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
+import "./card.scss"
+import "./card.css"
 const Content = () => {
   const [ items, setItems ] = useState( [] );
   const getItems = async () => {
@@ -14,57 +16,36 @@ const Content = () => {
   }, [] );
 
   return (
-    <Grid templateColumns='repeat(3, 1fr)' gap={6}>
-      {
-        items.length > 0 ? items.map( ( item, i ) => {
-          return (
-            <GridItem key={i} w='100%' >
-            <Card maxW='sm' key={i}>
-              <CardBody>
-                {item.uploadedImages ?
-                  <Image
-                    src={item.uploadedImages[ 0 ]}
-                    alt={item.name}
-                    borderRadius='lg'
-                    w='250'
-                    h='250'
-                  />
-                  : null}
-                <Stack mt='6' spacing='3'>
-                  <Heading size='md'>{item.name}</Heading>
-                  <Heading size='sm'>{item.category}</Heading>
-                  <Text color='gray.500' fontSize='sm'>
-                    listed by: {item.user.username}
-                  </Text>
-                  <Text>
-                    {item.description}
-                  </Text>
-                  <Text color='blue.600' fontSize='lg'>
-                    Swap For: {item.swapFor}
-                  </Text>
-                  <Text color='blue.600' fontSize='2xl'>
-                    {item.sellingPrice > 0 ? `Price: ${item.sellingPrice}` : 'Not for sale'}
-                  </Text>
-                </Stack>
-              </CardBody>
-              <Divider />
-              <CardFooter>
-                <ButtonGroup spacing='2'>
-                  <Button variant='solid' colorScheme='blue'>
-                    <Link to={`/swap/${item.id}`}>
-                    Buy or Swap now
-                    </Link>
-                  </Button>
-                </ButtonGroup>
-              </CardFooter>
-            </Card>
-            </GridItem>
-          );
-        } ) : <>no items</>
-      }
-    </Grid>
+  
+
+    items.length > 0 ? items.map ((item, i) => {
+      return (
+  <section class="container">
+ 
+  <div class="card" key={i}>
+    <div class="face face1">
+      <div class="content">
+        <span class="stars"></span>
+        <img class="card-img" src={item.uploadedImages } alt="image" />
+        <h2 class="java">Owner name :</h2>
+        <p class="java"> {item.name}</p>
+        <h2 class="java"> Price :</h2>
+        <p class="java">${item.sellingPrice}</p>
+        <h2 class="java">Description :</h2>
+        <p class="java">{item.description}</p>
+        <Link to={`/swap/${item.id}`}><button class="card-btn">More details</button></Link>
+      </div>
+    </div>
+    <div class="face face2">
+      <h2>Items</h2>
+    </div>
+  </div>
+</section>
+
+);
+
+       }) : <h1>Loading...</h1>
   );
 };
-
 export default Content;
 

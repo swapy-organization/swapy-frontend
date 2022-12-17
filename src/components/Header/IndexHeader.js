@@ -1,6 +1,6 @@
-
 /*eslint-disable*/
-import { Button } from "bootstrap";
+import { Button, Center } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ function IndexHeader() {
         className="page-header section-dark"
         style={{
           backgroundImage:
-            "url(" + require("assets/img/antoine-barres.jpg") + ")"
+            "url(" + require("assets/img/antoine-barres.jpg") + ")",
         }}
       >
         <div className="filter" />
@@ -32,22 +32,25 @@ function IndexHeader() {
               </div>
             </div>
             <h2 className="presentation-subtitle text-center">
-            Make your mark swapping an easy way with us!
+              Make your mark swapping an easy way with us!
             </h2>
           </Container>
         </div>
         <div
           className="moving-clouds"
           style={{
-            backgroundImage: "url(" + require("assets/img/clouds.png") + ")"
+            backgroundImage: "url(" + require("assets/img/clouds.png") + ")",
           }}
         />
-        
       </div>
       <Link to="/additem">
-      <button className="call-to-action" type="button" >
-        Add Item to Swap or Sell
-      </button>
+        <Center>
+          <Button
+            leftIcon={<AddIcon />}
+            colorScheme="teal" variant="outline">
+            Add Item to Swap or Sell
+          </Button>
+        </Center>
       </Link>
     </>
   );

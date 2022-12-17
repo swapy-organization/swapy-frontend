@@ -1,25 +1,9 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faUserCircle,
-    faEnvelope,
-    faLock,
-    faCity,
-} from "@fortawesome/free-solid-svg-icons";
+import "./addItem.scss";
+import "./addItem.css"
 import { Flex } from "@chakra-ui/react";
-import {
-    Heading,
-    Stack,
-    InputGroup,
-    Input,
-    InputLeftAddon,
-    Button,
-    FormControl,
-    Text,
-    Center,
-    Select,
-} from "@chakra-ui/react";
+import {Heading,Stack,Text,Center,} from "@chakra-ui/react";
 import NavBar from "../NavBar/NavBar";
 import { useItem } from "ContextAPI/Context/itemsContext";
 
@@ -55,274 +39,63 @@ function AddItemPage () {
                         </Text>
                         <Stack justify="center" color="gray">
                             <Form onSubmit={e => handleAddItem(e)}>
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <InputLeftAddon
-                                            pointerEvents="none"
-                                            width="30px"
-                                            height="35px"
-                                            border="none"
-                                            justifyContent="center"
-                                            children={
-                                                <FontAwesomeIcon color="black" icon={faUserCircle} />
-                                            }
-                                        />
-                                        <Input
-                                            type="text"
-                                            id="name"
-                                            h="35px"
-                                            variant="filled"
-                                            width="300px"
-                                            borderX="none"
-                                            borderBlockEnd="none"
-                                            borderBlock="none"
-                                            pr="5rem"
-                                            placeholder="ITEM NAME"
-                                        />
-                                    </InputGroup>
-                                </FormControl>
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <InputLeftAddon
-                                            pointerEvents="none"
-                                            width="30px"
-                                            height="35px"
-                                            border="none"
-                                            justifyContent="center"
-                                            children={
-                                                <FontAwesomeIcon color="black" icon={faUserCircle} />
-                                            }
-                                        />
-                                        <Input
-                                            type="text"
-                                            id="description"
-                                            h="35px"
-                                            variant="filled"
-                                            width="300px"
-                                            borderX="none"
-                                            borderBlockEnd="none"
-                                            borderBlock="none"
-                                            pr="5rem"
-                                            placeholder="ITEM DESCRIPTION"
-                                        />
-                                    </InputGroup>
-                                </FormControl>
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <input
-                                            type="checkbox"
-                                            id="sellingStatus"
-                                            placeholder="Selling Status"
-                                        />
-                                        <label htmlFor="sellingStatus" style={
-                                            {
-                                                color: "black",
-                                                fontSize: "15px",
-                                                fontWeight: "bold",
-                                                marginLeft: "10px",
-                                            }
-                                        }>Selling Status</label>
-                                    </InputGroup>
-                                </FormControl>
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                                <label for="name" class="form__label">Name</label>
+                                </div>
+                                <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="Description" name="description" id='description' required />
+                                <label for="description" class="form__label">Description</label>
+                                </div>
+                               
+                                <div class="item">
+                                <div class="checkbox-rect">
+                                    <input type="checkbox" id="checkbox-rect1" name="sellingStatus" value="sellingStatus" />
+                                    <label for="checkbox-rect1">Selling Status</label>
+                                </div>
+                                </div>
 
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <InputLeftAddon
-                                            pointerEvents="none"
-                                            width="30px"
-                                            height="35px"
-                                            border="none"
-                                            justifyContent="center"
-                                            children="$"
-                                        />
-                                        <Input
-                                            type="text"
-                                            id="sellingPrice"
-                                            variant="filled"
-                                            h="35px"
-                                            width="300px"
-                                            borderX="none"
-                                            borderBlockEnd="none"
-                                            borderBlock="none"
-                                            pr="5rem"
-                                            placeholder="Selling Price"
-                                        />
-                                    </InputGroup>
-                                </FormControl>
+                                <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="sellingPrice" name="sellingPrice" id='sellingPrice' required />
+                                <label for="sellingPrice" class="form__label">Selling Price</label>
+                                </div>
+                               
+                                <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="category" name="category" id='category' required />
+                                <label for="category" class="form__label">Category</label>
+                                </div>
 
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        h="35px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <InputLeftAddon
-                                            pointerEvents="none"
-                                            width="30px"
-                                            height="35px"
-                                            border="none"
-                                            justifyContent="center"
-                                            children={
-                                                <FontAwesomeIcon color="black" icon={faEnvelope} />
-                                            }
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Category"
-                                            h="35px"
-                                            id="category"
-                                            variant="filled"
-                                            width="300px"
-                                            borderX="none"
-                                            borderBlockEnd="none"
-                                            borderBlock="none"
-                                            pr="5rem"
-                                        />
-                                    </InputGroup>
-                                </FormControl>
-                                <input type="file" name="uploadedImages" multiple />
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <InputLeftAddon
-                                            pointerEvents="none"
-                                            width="30px"
-                                            height="35px"
-                                            border="none"
-                                            justifyContent="center"
-                                            children={<FontAwesomeIcon color="black" icon={faLock} />}
-                                        />
-                                        <Input
-                                            type="text"
-                                            id="swapFor"
-                                            h="35px"
-                                            placeholder="Swap For"
-                                            variant="filled"
-                                            width="300px"
-                                            borderX="none"
-                                            borderBlockEnd="none"
-                                            borderBlock="none"
-                                            pr="5rem"
-                                        />
-                                    </InputGroup>
-                                </FormControl>
 
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <InputLeftAddon
-                                            pointerEvents="none"
-                                            width="30px"
-                                            height="35px"
-                                            border="none"
-                                            justifyContent="center"
-                                            children={<FontAwesomeIcon color="black" icon={faCity} />}
-                                        />
-                                        <Input
-                                            type="text"
-                                            id="countryOfSwap"
-                                            h="35px"
-                                            placeholder="Country Of Swap"
-                                            variant="filled"
-                                            width="300px"
-                                            borderX="none"
-                                            borderBlockEnd="none"
-                                            borderBlock="none"
-                                            pr="5rem"
-                                        />
-                                    </InputGroup>
-                                </FormControl>
-                                <FormControl pb="1em" borderColor="black" isRequired>
-                                    <InputGroup
-                                        variant="outline"
-                                        borderRadius="5px"
-                                        borderBlock="cadetblue"
-                                        bg="#e8f0fe"
-                                        width="305px"
-                                        height="35px"
-                                    >
-                                        <InputLeftAddon
-                                            pointerEvents="none"
-                                            width="30px"
-                                            height="35px"
-                                            border="none"
-                                            justifyContent="center"
-                                            children={<FontAwesomeIcon color="black" icon={faCity} />}
-                                        />
-                                        <Select name="cityOfSwap">
-                                            <option>Select Your City</option>
-                                            <option>Irbid</option>
-                                            <option>Amman</option>
-                                            <option>Salt</option>
-                                            <option>Ma'an</option>
-                                            <option>Petra</option>
-                                            <option>Aqapa</option>
-                                            <option>Jerash</option>
-                                            <option>Ajloun</option>
-                                            <option>Zarqa'a</option>
-                                            <option>Mafraq</option>
-                                            <option>Karak</option>
-                                            <option>Tafilah</option>
-                                        </Select>
-                                    </InputGroup>
-                                </FormControl>
-                                <Button
-                                    type="submit"
-                                    width="305px"
-                                    color="black"
-                                    height="35px"
-                                    bg="#d0b4fb"
-                                    borderX="none"
-                                    borderY="none"
-                                    boxShadow="0 0 0 3px var(--chakra-colors-purple)"
-                                    variant="solid"
-                                    disabled={itemState.isLoading}
-                                > Add Item
-                                </Button>
+
+                                <input class="avatar-file" type="file" name="uploadedImages" multiple />
+                               
+                               <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="swapFor" name="swapFor" id='swapFor' required />
+                                <label for="swapFor" class="form__label">Swap For</label>
+                                </div>
+
+                                <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="countryOfSwap" name="countryOfSwap" id='countryOfSwap' required />
+                                <label for="countryOfSwap" class="form__label">Country Of Swap</label>
+                                </div>
+
+                                <div class="page">
+                                    <div class="select-dropdown">
+                                        <select name="cityOfSwap">
+                                        <option value="Amman">Amman</option>
+                                        <option value="Irbid">Irbid</option>
+                                        <option value="Aqapa">Aqapa</option>
+                                        <option value="Zarqa">Zarqa</option>
+                                        <option value="Mafraq">Mafraq</option>
+                                        </select>
+                                    </div>
+                                    </div>
+  
+                                <button class="add-btn"
+                                disabled={itemState.loading}
+                                >
+                                    Add Item
+                                </button>
                             </Form>
                         </Stack>
                     </Stack>

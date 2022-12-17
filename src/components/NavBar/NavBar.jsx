@@ -31,7 +31,7 @@ function NavBar() {
   return (
     <>
       <header></header>
-      <nav className={navbar ? "navbar active" : "navbar"}>
+      <nav className={navbar ? "navbarr active" : "navbarr"}>
         <div className="navbar-container">
           <Link
             to="/"

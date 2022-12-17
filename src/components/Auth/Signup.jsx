@@ -9,7 +9,7 @@ import {
   faUserTie,
   faCity,
 } from "@fortawesome/free-solid-svg-icons";
-import { Flex,Box } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import {
   Heading,
   Stack,
@@ -21,6 +21,7 @@ import {
   Text,
   Center,
   Select,
+  Avatar,
 } from "@chakra-ui/react";
 
 import { useAuth } from "../../ContextAPI/Context/authContext";
@@ -28,13 +29,13 @@ import { useAuth } from "../../ContextAPI/Context/authContext";
 export default function SignupCard() {
   // const [ showPassword, setShowPassword ] = useState( false );
   const { handleSignUp, auth } = useAuth();
-  console.log( auth );
+  console.log(auth);
   return (
     <Flex h="50px">
       <Center
         h="100vh"
         w="100%"
-        bg={"url(https://wallpaperaccess.com/full/193861.jpg)"}
+        bg={"url(https://4kwallpapers.com/images/walls/thumbs_3t/5889.jpg)"}
         width="100%"
         bgSize="cover"
         repeat="no-repeat"
@@ -48,6 +49,8 @@ export default function SignupCard() {
           p="20"
           rounded="md"
         >
+                  <Avatar bg="grey" />
+
           <Heading as="h1" color="black">
             SIGN UP NOW
           </Heading>
@@ -55,13 +58,12 @@ export default function SignupCard() {
             You like swapping? Join Us
           </Text>
           <Stack justify="center" color="gray">
-            <Form onSubmit={e => handleSignUp(e)}>
+            <Form onSubmit={(e) => handleSignUp(e)}>
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -85,16 +87,18 @@ export default function SignupCard() {
                     borderBlockEnd="none"
                     borderBlock="none"
                     pr="5rem"
-                    placeholder="USERNAME"
+                    placeholder="Username"
                   />
                 </InputGroup>
+          <FormControl pb="1em" borderColor="black" isRequired>
+              <input type="file" name="avatar" />
+              </FormControl>
               </FormControl>
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -121,13 +125,11 @@ export default function SignupCard() {
                     placeholder="First Name"
                   />
                 </InputGroup>
-              </FormControl>
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -155,14 +157,13 @@ export default function SignupCard() {
                   />
                 </InputGroup>
               </FormControl>
-
+              </FormControl>
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   h="35px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -176,61 +177,26 @@ export default function SignupCard() {
                       <FontAwesomeIcon color="black" icon={faEnvelope} />
                     }
                   />
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    h="35px"
-                    id="email"
-                    variant="filled"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                  />
-                </InputGroup>
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      h="35px"
+                      id="email"
+                      variant="filled"
+                      width="300px"
+                      borderX="none"
+                      borderBlockEnd="none"
+                      borderBlock="none"
+                      pr="5rem"
+                    />
+                  </InputGroup>
               </FormControl>
 
-              {/* <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  bg="#e8f0fe"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={
-                      <FontAwesomeIcon color="black" icon={faUserTie} />
-                    }
-                  />
-                  {/* <Input
-                    type="file"
-                    placeholder="Avatar"
-                    h="35px"
-                    id="avatar"
-                    variant="filled"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                  /> */}
-                {/* </InputGroup> */}
-              {/* </FormControl> */} 
-                  <input type="file" name="avatar" />
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -246,7 +212,7 @@ export default function SignupCard() {
                     type="password"
                     id="password"
                     h="35px"
-                    placeholder="********"
+                    placeholder="Your password..."
                     variant="filled"
                     width="300px"
                     borderX="none"
@@ -255,13 +221,11 @@ export default function SignupCard() {
                     pr="5rem"
                   />
                 </InputGroup>
-              </FormControl>
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -277,7 +241,7 @@ export default function SignupCard() {
                     type="password"
                     id="confirmPassword"
                     h="35px"
-                    placeholder="********"
+                    placeholder="Confirm password"
                     variant="filled"
                     width="300px"
                     borderX="none"
@@ -287,13 +251,13 @@ export default function SignupCard() {
                   />
                 </InputGroup>
               </FormControl>
+              </FormControl>
 
               <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -324,7 +288,6 @@ export default function SignupCard() {
                   variant="outline"
                   borderRadius="5px"
                   borderBlock="cadetblue"
-                  bg="#e8f0fe"
                   width="305px"
                   height="35px"
                 >
@@ -341,15 +304,7 @@ export default function SignupCard() {
                     <option>Irbid</option>
                     <option>Amman</option>
                     <option>Salt</option>
-                    <option>Ma'an</option>
-                    <option>Petra</option>
-                    <option>Aqapa</option>
-                    <option>Jerash</option>
-                    <option>Ajloun</option>
-                    <option>Zarqa'a</option>
-                    <option>Mafraq</option>
-                    <option>Karak</option>
-                    <option>Tafilah</option>
+                    <option>Aqaba</option>
                   </Select>
                 </InputGroup>
               </FormControl>
@@ -358,19 +313,17 @@ export default function SignupCard() {
                 width="305px"
                 color="black"
                 height="35px"
-                bg="#d0b4fb"
-                borderX="none"
-                borderY="none"
-                boxShadow="0 0 0 3px var(--chakra-colors-purple)"
                 variant="solid"
-              > Sign up Now
+              >
+                {" "}
+                Sign up Now
               </Button>
               <Box>
-        Already have an account?{" "}
-        <Link color="teal.500" href="/signin">
-          Sign in
-        </Link>
-      </Box>
+                Already have an account?{" "}
+                <Link color="teal.500" href="/signin">
+                  Sign in
+                </Link>
+              </Box>
             </Form>
           </Stack>
         </Stack>
@@ -378,3 +331,6 @@ export default function SignupCard() {
     </Flex>
   );
 }
+
+
+
