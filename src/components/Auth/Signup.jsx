@@ -1,29 +1,18 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import { Link } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUserCircle,
-  faEnvelope,
-  faLock,
-  faUserTie,
-  faCity,
-} from "@fortawesome/free-solid-svg-icons";
 import { Flex, Box } from "@chakra-ui/react";
 import {
   Heading,
   Stack,
-  InputGroup,
-  Input,
-  InputLeftAddon,
-  Button,
   FormControl,
   Text,
   Center,
   Select,
   Avatar,
 } from "@chakra-ui/react";
-
+import './form.css'
+import './form.scss'
 import { useAuth } from "../../ContextAPI/Context/authContext";
 
 export default function SignupCard() {
@@ -35,7 +24,7 @@ export default function SignupCard() {
       <Center
         h="100vh"
         w="100%"
-        bg={"url(https://4kwallpapers.com/images/walls/thumbs_3t/5889.jpg)"}
+        bgGradient={"linear(to-r, #434242, #222222)"}
         width="100%"
         bgSize="cover"
         repeat="no-repeat"
@@ -45,6 +34,8 @@ export default function SignupCard() {
           opacity="0.9"
           boxShadow="md"
           alignItems="center"
+          h="90%"
+          w="50%"
           bg={"#fdf9ff"}
           p="20"
           rounded="md"
@@ -59,265 +50,53 @@ export default function SignupCard() {
           </Text>
           <Stack justify="center" color="gray">
             <Form onSubmit={(e) => handleSignUp(e)}>
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={
-                      <FontAwesomeIcon color="black" icon={faUserCircle} />
-                    }
-                  />
-                  <Input
-                    type="text"
-                    id="username"
-                    h="35px"
-                    variant="filled"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                    placeholder="Username"
-                  />
-                </InputGroup>
-          <FormControl pb="1em" borderColor="black" isRequired>
+            <FormControl pb="1em" borderColor="black" isRequired>
               <input type="file" name="avatar" />
               </FormControl>
-              </FormControl>
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={
-                      <FontAwesomeIcon color="black" icon={faUserCircle} />
-                    }
-                  />
-                  <Input
-                    type="text"
-                    id="firstname"
-                    h="35px"
-                    variant="filled"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                    placeholder="First Name"
-                  />
-                </InputGroup>
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={
-                      <FontAwesomeIcon color="black" icon={faUserCircle} />
-                    }
-                  />
-                  <Input
-                    type="text"
-                    id="lastname"
-                    variant="filled"
-                    h="35px"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                    placeholder="Last Name"
-                  />
-                </InputGroup>
-              </FormControl>
-              </FormControl>
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  h="35px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={
-                      <FontAwesomeIcon color="black" icon={faEnvelope} />
-                    }
-                  />
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      h="35px"
-                      id="email"
-                      variant="filled"
-                      width="300px"
-                      borderX="none"
-                      borderBlockEnd="none"
-                      borderBlock="none"
-                      pr="5rem"
-                    />
-                  </InputGroup>
-              </FormControl>
+            <div class="form__group field">
+            <input type="input" class="form__field" placeholder="username" id='username' required />
+           <label for="username" class="form__label">Username</label>
+           </div>
+         
+              
+              <div class="form__group field">
+            <input type="input" class="form__field" placeholder="firstname" id='firstname' required />
+           <label for="firstname" class="form__label">First Name</label>
+           </div>
+           <div class="form__group field">
+            <input type="input" class="form__field" placeholder="lastname" id='lastname' required />
+           <label for="lastname" class="form__label">Last Name</label>
+           </div>
+           <div class="form__group field">
+            <input type="input" class="form__field" placeholder="email" id='email' required />
+           <label for="email" class="form__label">Email</label>
+           </div>
 
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={<FontAwesomeIcon color="black" icon={faLock} />}
-                  />
-                  <Input
-                    type="password"
-                    id="password"
-                    h="35px"
-                    placeholder="Your password..."
-                    variant="filled"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                  />
-                </InputGroup>
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={<FontAwesomeIcon color="black" icon={faLock} />}
-                  />
-                  <Input
-                    type="password"
-                    id="confirmPassword"
-                    h="35px"
-                    placeholder="Confirm password"
-                    variant="filled"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                  />
-                </InputGroup>
-              </FormControl>
-              </FormControl>
-
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={<FontAwesomeIcon color="black" icon={faCity} />}
-                  />
-                  <Input
-                    type="text"
-                    id="country"
-                    h="35px"
-                    placeholder="Country"
-                    variant="filled"
-                    width="300px"
-                    borderX="none"
-                    borderBlockEnd="none"
-                    borderBlock="none"
-                    pr="5rem"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl pb="1em" borderColor="black" isRequired>
-                <InputGroup
-                  variant="outline"
-                  borderRadius="5px"
-                  borderBlock="cadetblue"
-                  width="305px"
-                  height="35px"
-                >
-                  <InputLeftAddon
-                    pointerEvents="none"
-                    width="30px"
-                    height="35px"
-                    border="none"
-                    justifyContent="center"
-                    children={<FontAwesomeIcon color="black" icon={faCity} />}
-                  />
-                  <Select name="city">
-                    <option>Select Your City</option>
-                    <option>Irbid</option>
-                    <option>Amman</option>
-                    <option>Salt</option>
-                    <option>Aqaba</option>
-                  </Select>
-                </InputGroup>
-              </FormControl>
-              <Button
-                type="submit"
-                width="305px"
-                color="black"
-                height="35px"
-                variant="solid"
+           <div class="form__group field">
+            <input type="input" class="form__field" placeholder="password" id='password' required />
+           <label for="password" class="form__label">Password</label>
+           </div>
+           <div class="form__group field">
+            <input type="input" class="form__field" placeholder="confirmPassword" id='confirmPassword' required />
+           <label for="confirmPassword" class="form__label">Password again</label>
+           </div>
+             
+           <div class="form__group field">
+            <input type="input" class="form__field" placeholder="country" id='country' required />
+           <label for="country" class="form__label">Country</label>
+           </div>
+              
+              <Select
+                placeholder="Select your city"
+                borderColor="black"
+                isRequired
+                id="city"
               >
-                {" "}
-                Sign up Now
-              </Button>
+                <option value="Amman">Amman</option>
+                <option value="Aqaba">Aqaba</option>
+                <option value="Irbid">Irbid</option>
+                <option value="Salt">Salt</option>
+                </Select>
               <Box>
                 Already have an account?{" "}
                 <Link color="teal.500" href="/signin">

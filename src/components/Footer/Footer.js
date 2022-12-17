@@ -1,55 +1,45 @@
 import React from "react";
-import "../../App.css";
-import PrivacyModal from "../ModalView/PrivacyModal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faYoutube,
-    faGithub,
-    faFacebook,
-} from "@fortawesome/free-brands-svg-icons";
-import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 
-const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="footer-container">
-                <div className="item1">
-                    <PrivacyModal />
-                </div>
-                <div className="item2">
-                    <span style={{ paddingRight: 5 }}>Copyright </span>
-                    <FontAwesomeIcon icon={faCopyright} />{" "}
-                    <span style={{ paddingLeft: 5 }}>
-                        {new Date().getFullYear()} SWAPY . All Rights
-                        Reserved.
-                    </span>
-                </div>
-                <a
-                    href="https://github.com/swapy-organization"
-                    target="_blank"
-                    className="item3"
-                >
-                    <FontAwesomeIcon icon={faGithub} />
-                </a>
-                <a
-                    href="http://fb.com/sudiptob2"
-                    target="_blank"
-                    className="item4"
-                >
-                    <FontAwesomeIcon icon={faFacebook} />
-                </a>
-                <a
-                    href="https://www.youtube.com/"
-                    target="_blank"
-                    className="item5"
-                >
-                    <FontAwesomeIcon icon={faYoutube} />
-                </a>
-
-                {false && <PrivacyModal click={true} />}
-            </div>
-        </footer>
-    );
-};
+// reactstrap components
+import './Footer.scss';
+function Footer() {
+  return (
+    <footer class="section bg-footer">
+    <div class="container">
+      <div>
+        <h6 class="footer-heading text-uppercase text-white">Informations</h6>
+        <ul class="footer-link mt-4">
+          <li><a href="#!">Sitemap</a></li>
+          <li><a href="#!">Our team</a></li>
+          <li><a href="#!">Terms of Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="footer-heading text-uppercase text-white">Help</h6>
+        <ul class="footer-link mt-4">
+          <li><a href="/signup">Register</a></li>
+          <li><a href="/signin">Sign in</a></li>
+          <li><a href="#!">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-link">
+        <h6 class="footer-heading text-uppercase text-white">Contact us</h6>
+        <p class="contact-info mt-4">Need help ?</p>
+        <p class="contact-info">+XX XX-XX-XX-XX-XX</p>
+        <div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#!"><i class="fab facebook footer-social-icon fa-facebook-f">F</i></a></li>
+            <li class="list-inline-item"><a href="#!"><i class="fab twitter footer-social-icon fa-twitter">TW</i></a></li>
+            <li class="list-inline-item"><a href="#!"><i class="fab instagram footer-social-icon fa-instagram">IG</i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <p class="footer-alt">2022 © Swapy, All Rights Reserved</p>
+    </div>
+  </footer>
+  );
+}
 
 export default Footer;

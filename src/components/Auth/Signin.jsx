@@ -21,7 +21,7 @@ const Signin = () => {
         <Center
           h="100vh"
           w="100%"
-          bg={"url(https://4kwallpapers.com/images/walls/thumbs_3t/5889.jpg)"}
+          bgGradient={"linear(to-r, #434242, #222222)"}
           width="100%"
           bgSize="cover"
           repeat="no-repeat"
@@ -88,5 +88,4 @@ const Signin = () => {
     </Flex>
   );
 };
-
 export default Signin;

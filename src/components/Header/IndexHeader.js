@@ -31,9 +31,7 @@ function IndexHeader() {
                 <img alt="..." src={require("assets/img/fog-low.png")} />
               </div>
             </div>
-            <h2 className="presentation-subtitle text-center">
-              Make your mark swapping an easy way with us!
-            </h2>
+            
           </Container>
         </div>
         <div
