@@ -22,12 +22,12 @@ export const itemsReducer = ( state, action ) => {
                 error: action.payload.error,
                 isLoading: false,
             };
-
         case itemsActions.ADD_ITEM_REQUEST:
             return {
                 ...state,
                 isLoading: true,
                 error: null,
+                alert: {}
             };
         case itemsActions.ADD_ITEM_SUCCESS:
             return {
@@ -35,39 +35,56 @@ export const itemsReducer = ( state, action ) => {
                 items: [ ...state.items, action.payload.item ],
                 isLoading: false,
                 error: null,
+                navigation: '/',
+                alert: {
+                    message:'Item added successfully',
+                    type: 'success'
+                }
             };
         case itemsActions.ADD_ITEM_FAILURE:
             return {
                 ...state,
                 error: action.payload.error,
                 isLoading: false,
+                alert: {
+                    message:'Please try again later',
+                    type: 'error'
+                }
             };
-
         case itemsActions.DELETE_ITEM_REQUEST:
             return {
                 ...state,
                 isLoading: true,
                 error: null,
+                alert: {}
             };
         case itemsActions.DELETE_ITEM_SUCCESS:
             return {
                 ...state,
-                items: state.items.filter( item => item.id !== action.payload.id ),
+                items: [],
                 isLoading: false,
                 error: null,
+                alert: {
+                    message:'Item deleted successfully',
+                    type: 'success'
+                }
             };
         case itemsActions.DELETE_ITEM_FAILURE:
             return {
                 ...state,
                 error: action.payload.error,
                 isLoading: false,
+                alert: {
+                    message:'Please try again later',
+                    type: 'error'
+                }
             };
-
         case itemsActions.UPDATE_ITEM_REQUEST:
             return {
                 ...state,
                 isLoading: true,
                 error: null,
+                alert: {}
             };
         case itemsActions.UPDATE_ITEM_SUCCESS:
             return {
@@ -80,12 +97,21 @@ export const itemsReducer = ( state, action ) => {
                 } ),
                 isLoading: false,
                 error: null,
+                navigation: '/userprofile',
+                alert: {
+                    message:'Item updated successfully',
+                    type: 'success'
+                }
             };
         case itemsActions.UPDATE_ITEM_FAILURE:
             return {
                 ...state,
                 error: action.payload.error,
                 isLoading: false,
+                alert: {
+                    message:'Please try again later',
+                    type: 'error'
+                }
             };
         default:
             throw new Error( `Unhandled action type: ${action.type}` );

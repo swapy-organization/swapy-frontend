@@ -22,7 +22,6 @@ export const signUpAction = async ( dispatch, user ) => {
       type: authActions.SIGNUP_SUCCESS,
       payload: {
         username: response.data.user.username,
-
       },
     } );
   } catch ( error ) {

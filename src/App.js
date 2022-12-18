@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import UserProfile from './components/UserProfile';
 import { useEffect, useState } from 'react';
 import { useAuth } from "./ContextAPI/Context/authContext";
+import { useItem } from "./ContextAPI/Context/itemsContext";
 import ErrorHandler from "./errorNotify";
 import AddItemPage from "./components/itemsCRUD/addItem";
 import EditItemPage from "./components/itemsCRUD/editItem";
@@ -14,21 +15,43 @@ import BuyOrSwap from "./components/BuyOrSwap/buyOrSwap";
 import ListUserProfile from "./components/BuyOrSwap/listUserProfile";
 import PageNotFound from "404";
 import MyChatComponent from "chat";
+import swal from 'sweetalert';
 
 function App () {
   const [ isAuth, setIsAuth ] = useState( false );
   const navigate = useNavigate();
-  const navegateTo = () => {
-    navigate( '/' );
-  };
   const { auth } = useAuth();
+  const { itemState } = useItem();
+  const callSweetAlert = () => {
+    if ( auth.alert.message ) {
+      swal( "", auth.alert.message, auth.alert.type );
+    }
+    if ( itemState.alert.message ) {
+      swal( "", itemState.alert.message, itemState.alert.type );
+    }
+  };
+
+  const navegateTo = ( nav ) => {
+    setTimeout( () => {
+      navigate( nav );
+    }, 2000 );
+  };
+  useEffect( () => {
+    callSweetAlert();
+    navegateTo( auth.navigation );
+  }, [ auth ] );
+
   useEffect( () => {
     const authCheck = localStorage.getItem( "isAuth" );
     if ( authCheck === 'true' ) {
       setIsAuth( true );
-      navegateTo();
     }
   }, [] );
+
+  useEffect( () => {
+    callSweetAlert();
+    navegateTo( itemState.navigation );
+  }, [ itemState ] );
 
 
   return (
