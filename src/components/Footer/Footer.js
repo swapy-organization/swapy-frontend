@@ -1,42 +1,43 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // reactstrap components
 import './Footer.scss';
 function Footer() {
   return (
-    <footer class="section bg-footer">
-    <div class="container">
+    <footer className="section bg-footer">
+    <div className="container">
       <div>
-        <h6 class="footer-heading text-uppercase text-white">Informations</h6>
-        <ul class="footer-link mt-4">
+        <h6 className="footer-heading text-uppercase text-white">Informations</h6>
+        <ul className="footer-link mt-4">
           <li><a href="#!">Sitemap</a></li>
           <li><a href="#!">Our team</a></li>
           <li><a href="#!">Terms of Services</a></li>
         </ul>
       </div>
       <div>
-        <h6 class="footer-heading text-uppercase text-white">Help</h6>
-        <ul class="footer-link mt-4">
-          <li><a href="/signup">Register</a></li>
-          <li><a href="/signin">Sign in</a></li>
-          <li><a href="#!">Privacy Policy</a></li>
+        <h6 className="footer-heading text-uppercase text-white">Help</h6>
+        <ul className="footer-link mt-4">
+          <li><Link to="/signup">Register</Link></li>
+          <li><Link to="/signin">Sign in</Link></li>
+          <li><Link to="#!">Privacy Policy</Link></li>
         </ul>
       </div>
-      <div class="footer-link">
-        <h6 class="footer-heading text-uppercase text-white">Contact us</h6>
-        <p class="contact-info mt-4">Need help ?</p>
-        <p class="contact-info">+XX XX-XX-XX-XX-XX</p>
+      <div className="footer-link">
+        <h6 className="footer-heading text-uppercase text-white">Contact us</h6>
+        <p className="contact-info mt-4">Need help ?</p>
+        <p className="contact-info">+XX XX-XX-XX-XX-XX</p>
         <div>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#!"><i class="fab facebook footer-social-icon fa-facebook-f">F</i></a></li>
-            <li class="list-inline-item"><a href="#!"><i class="fab twitter footer-social-icon fa-twitter">TW</i></a></li>
-            <li class="list-inline-item"><a href="#!"><i class="fab instagram footer-social-icon fa-instagram">IG</i></a></li>
+          <ul className="list-inline">
+            <li className="list-inline-item"><a href="#!"><i className="fab facebook footer-social-icon fa-facebook-f">F</i></a></li>
+            <li className="list-inline-item"><a href="#!"><i className="fab twitter footer-social-icon fa-twitter">TW</i></a></li>
+            <li className="list-inline-item"><a href="#!"><i className="fab instagram footer-social-icon fa-instagram">IG</i></a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="text-center mt-5">
-      <p class="footer-alt">2022 © Swapy, All Rights Reserved</p>
+    <div className="text-center mt-5">
+      <p className="footer-alt">2022 © Swapy, All Rights Reserved</p>
     </div>
   </footer>
   );

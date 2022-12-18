@@ -12,14 +12,12 @@ import {
   Avatar,
   Button
 } from "@chakra-ui/react";
-import './form.css'
-import './form.scss'
+import './form.css';
+import './form.scss';
 import { useAuth } from "../../ContextAPI/Context/authContext";
 
-export default function SignupCard() {
-  // const [ showPassword, setShowPassword ] = useState( false );
-  const { handleSignUp, auth } = useAuth();
-  console.log(auth);
+export default function SignupCard () {
+  const { handleSignUp } = useAuth();
   return (
     <Flex h="50px">
       <Center
@@ -41,8 +39,7 @@ export default function SignupCard() {
           p="20"
           rounded="md"
         >
-                  <Avatar bg="grey" />
-
+          <Avatar bg="grey" />
           <Heading as="h1" color="black">
             SIGN UP NOW
           </Heading>
@@ -50,43 +47,38 @@ export default function SignupCard() {
             You like swapping? Join Us
           </Text>
           <Stack justify="center" color="gray">
-            <Form onSubmit={(e) => handleSignUp(e)}>
-            <FormControl pb="1em" borderColor="black" isRequired>
-              <input type="file" name="avatar" />
+            <Form onSubmit={( e ) => handleSignUp( e )}>
+              <FormControl pb="1em" borderColor="black" isRequired>
+                <input type="file" name="avatar" />
               </FormControl>
-            <div class="form__group field">
-            <input type="input" class="form__field" placeholder="username" id='username' required />
-           <label for="username" class="form__label">Username</label>
-           </div>
-         
-              
-              <div class="form__group field">
-            <input type="input" class="form__field" placeholder="firstname" id='firstname' required />
-           <label for="firstname" class="form__label">First Name</label>
-           </div>
-           <div class="form__group field">
-            <input type="input" class="form__field" placeholder="lastname" id='lastname' required />
-           <label for="lastname" class="form__label">Last Name</label>
-           </div>
-           <div class="form__group field">
-            <input type="input" class="form__field" placeholder="email" id='email' required />
-           <label for="email" class="form__label">Email</label>
-           </div>
-
-           <div class="form__group field">
-            <input type="input" class="form__field" placeholder="password" id='password' required />
-           <label for="password" class="form__label">Password</label>
-           </div>
-           <div class="form__group field">
-            <input type="input" class="form__field" placeholder="confirmPassword" id='confirmPassword' required />
-           <label for="confirmPassword" class="form__label">Password again</label>
-           </div>
-             
-           <div class="form__group field">
-            <input type="input" class="form__field" placeholder="country" id='country' required />
-           <label for="country" class="form__label">Country</label>
-           </div>
-              
+              <div className="form__group field">
+                <input type="input" className="form__field" placeholder="username" id='username' required />
+                <label htmlFor="username" className="form__label">Username</label>
+              </div>
+              <div className="form__group field">
+                <input type="input" className="form__field" placeholder="firstname" id='firstname' required />
+                <label htmlFor="firstname" className="form__label">First Name</label>
+              </div>
+              <div className="form__group field">
+                <input type="input" className="form__field" placeholder="lastname" id='lastname' required />
+                <label htmlFor="lastname" className="form__label">Last Name</label>
+              </div>
+              <div className="form__group field">
+                <input type="input" className="form__field" placeholder="email" id='email' required />
+                <label htmlFor="email" className="form__label">Email</label>
+              </div>
+              <div className="form__group field">
+                <input type="input" className="form__field" placeholder="password" id='password' required />
+                <label htmlFor="password" className="form__label">Password</label>
+              </div>
+              <div className="form__group field">
+                <input type="input" className="form__field" placeholder="confirmPassword" id='confirmPassword' required />
+                <label htmlFor="confirmPassword" className="form__label">Password again</label>
+              </div>
+              <div className="form__group field">
+                <input type="input" className="form__field" placeholder="country" id='country' required />
+                <label htmlFor="country" className="form__label">Country</label>
+              </div>
               <Select
                 placeholder="Select your city"
                 borderColor="black"
@@ -97,11 +89,10 @@ export default function SignupCard() {
                 <option value="Aqaba">Aqaba</option>
                 <option value="Irbid">Irbid</option>
                 <option value="Salt">Salt</option>
-                </Select>
-                <Button
+              </Select>
+              <Button
                 left={310}
                 bottom={10}
-
                 borderRadius={0}
                 type="submit"
                 variant="solid"
@@ -112,7 +103,7 @@ export default function SignupCard() {
               </Button>
               <Box>
                 Already have an account?{" "}
-                <Link color="teal.500" href="/signin">
+                <Link color="teal.500" to="/signin">
                   Sign in
                 </Link>
               </Box>

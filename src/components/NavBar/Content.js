@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Grid, GridItem, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import "./card.scss"
 import "./card.css"
 const Content = () => {
@@ -21,28 +21,26 @@ const Content = () => {
     
     items.length > 0 ? items.map ((item, i) => {
       return (
-        <section class="container">
- 
-        <div class="card" key={i}>
-          <div class="face face1">
-            <div class="content">
-              <span class="stars"></span>
-              <img class="card-img" src={item.uploadedImages } alt="image" />
-              <h2 class="java">Owner name :</h2>
-              <p class="java"> {item.name}</p>
-              <h2 class="java"> Price :</h2>
-              <p class="java">${item.sellingPrice}</p>
-              <h2 class="java">Description :</h2>
-              <p class="java">{item.description}</p>
-              <Link to={`/swap/${item.id}`}><button class="card-btn">More details</button></Link>
+        <section className="container" key={i}>
+        <div className="card" key={i}>
+          <div className="face face1">
+            <div className="content">
+              <span className="stars"></span>
+              <img className="card-img" src={item.uploadedImages } alt={item.id} />
+              <h2 className="java">Owner name :</h2>
+              <p className="java"> {item.name}</p>
+              <h2 className="java"> Price :</h2>
+              <p className="java">${item.sellingPrice}</p>
+              <h2 className="java">Description :</h2>
+              <p className="java">{item.description}</p>
+              <Link to={`/swap/${item.id}`}><button className="card-btn">More details</button></Link>
             </div>
           </div>
-          <div class="face face2">
+          <div className="face face2">
             <h2>Items</h2>
           </div>
         </div>
       </section>
-
 );
         } ) : <>no items</>
       }

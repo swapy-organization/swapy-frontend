@@ -10,23 +10,25 @@ import { useAuth } from "./ContextAPI/Context/authContext";
 import ErrorHandler from "./errorNotify";
 import AddItemPage from "./components/itemsCRUD/addItem";
 import EditItemPage from "./components/itemsCRUD/editItem";
-import PageNotFound from "404";
 import BuyOrSwap from "./components/BuyOrSwap/buyOrSwap";
+import ListUserProfile from "./components/BuyOrSwap/listUserProfile";
+import PageNotFound from "404";
+import MyChatComponent from "chat";
 
 function App () {
-  const [ isAuth, setIsAuth ] = useState( true );
+  const [ isAuth, setIsAuth ] = useState( false );
   const navigate = useNavigate();
   const navegateTo = () => {
     navigate( '/' );
   };
   const { auth } = useAuth();
-  // useEffect( () => {
-  //   const authCheck = localStorage.getItem( "isAuth" );
-  //   if ( authCheck === 'true' ) {
-  //     setIsAuth( true );
-  //     navegateTo();
-  //   }
-  // }, [auth] );
+  useEffect( () => {
+    const authCheck = localStorage.getItem( "isAuth" );
+    if ( authCheck === 'true' ) {
+      setIsAuth( true );
+      navegateTo();
+    }
+  }, [] );
 
 
   return (
@@ -43,6 +45,8 @@ function App () {
         <Route exact path='/additem' element={isAuth ? <AddItemPage /> : <Signin />} />
         <Route path='/edititem/:id' element={isAuth ? <EditItemPage /> : <Signin />} />
         <Route path='/swap/:id' element={<BuyOrSwap />} />
+        <Route path='/message/:id' element={<MyChatComponent />} />
+        <Route path='/profile/:id' element={<ListUserProfile />} />
         {/* 404 routes */}
         <Route path="*" element={<PageNotFound />} />
         <Route path="404" element={<PageNotFound />} />

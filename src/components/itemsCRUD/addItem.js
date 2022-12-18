@@ -1,16 +1,16 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import "./addItem.scss";
-import "./addItem.css"
+import "./addItem.css";
 import { Flex } from "@chakra-ui/react";
-import {Heading,Stack,Text,Center,} from "@chakra-ui/react";
+import { Heading, Stack, Text, Center, } from "@chakra-ui/react";
 import NavBar from "../NavBar/NavBar";
 import { useItem } from "ContextAPI/Context/itemsContext";
 
 
 function AddItemPage () {
-    const {handleAddItem, itemState}= useItem()
-    console.log(itemState)
+    const { handleAddItem, itemState } = useItem();
+    console.log( itemState );
     return (
         <>
             <NavBar />
@@ -38,61 +38,51 @@ function AddItemPage () {
                             You like swapping? Join Us now
                         </Text>
                         <Stack justify="center" color="gray">
-                            <Form onSubmit={e => handleAddItem(e)}>
-                            <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                                <label for="name" class="form__label">Name</label>
+                            <Form onSubmit={e => handleAddItem( e )}>
+                                <div className="form__group field">
+                                    <input type="input" className="form__field" placeholder="Name" name="name" id='name' required />
+                                    <label htmlFor="name" className="form__label">Name</label>
                                 </div>
-                                <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="Description" name="description" id='description' required />
-                                <label for="description" class="form__label">Description</label>
+                                <div className="form__group field">
+                                    <input type="input" className="form__field" placeholder="Description" name="description" id='description' required />
+                                    <label htmlFor="description" className="form__label">Description</label>
                                 </div>
-                               
-                                <div class="item">
-                                <div class="checkbox-rect">
-                                    <input type="checkbox" id="checkbox-rect1" name="sellingStatus" value="sellingStatus" />
-                                    <label for="checkbox-rect1">Selling Status</label>
+                                <div className="item">
+                                    <div className="checkbox-rect">
+                                        <input type="checkbox" id="checkbox-rect1" name="sellingStatus" value="sellingStatus" />
+                                        <label htmlFor="checkbox-rect1">Selling Status</label>
+                                    </div>
                                 </div>
+                                <div className="form__group field">
+                                    <input type="input" className="form__field" placeholder="sellingPrice" name="sellingPrice" id='sellingPrice' required />
+                                    <label htmlFor="sellingPrice" className="form__label">Selling Price</label>
                                 </div>
-
-                                <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="sellingPrice" name="sellingPrice" id='sellingPrice' required />
-                                <label for="sellingPrice" class="form__label">Selling Price</label>
+                                <div className="form__group field">
+                                    <input type="input" className="form__field" placeholder="category" name="category" id='category' required />
+                                    <label htmlFor="category" className="form__label">Category</label>
                                 </div>
-                               
-                                <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="category" name="category" id='category' required />
-                                <label for="category" class="form__label">Category</label>
+                                <input className="avatar-file" type="file" name="uploadedImages" multiple />
+                                <div className="form__group field">
+                                    <input type="input" className="form__field" placeholder="swapFor" name="swapFor" id='swapFor' required />
+                                    <label htmlFor="swapFor" className="form__label">Swap For</label>
                                 </div>
-
-
-
-                                <input class="avatar-file" type="file" name="uploadedImages" multiple />
-                               
-                               <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="swapFor" name="swapFor" id='swapFor' required />
-                                <label for="swapFor" class="form__label">Swap For</label>
+                                <div className="form__group field">
+                                    <input type="input" className="form__field" placeholder="countryOfSwap" name="countryOfSwap" id='countryOfSwap' required />
+                                    <label htmlFor="countryOfSwap" className="form__label">Country Of Swap</label>
                                 </div>
-
-                                <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="countryOfSwap" name="countryOfSwap" id='countryOfSwap' required />
-                                <label for="countryOfSwap" class="form__label">Country Of Swap</label>
-                                </div>
-
-                                <div class="page">
-                                    <div class="select-dropdown">
+                                <div className="page">
+                                    <div className="select-dropdown">
                                         <select name="cityOfSwap">
-                                        <option value="Amman">Amman</option>
-                                        <option value="Irbid">Irbid</option>
-                                        <option value="Aqapa">Aqapa</option>
-                                        <option value="Zarqa">Zarqa</option>
-                                        <option value="Mafraq">Mafraq</option>
+                                            <option value="Amman">Amman</option>
+                                            <option value="Irbid">Irbid</option>
+                                            <option value="Aqapa">Aqapa</option>
+                                            <option value="Zarqa">Zarqa</option>
+                                            <option value="Mafraq">Mafraq</option>
                                         </select>
                                     </div>
-                                    </div>
-  
-                                <button class="add-btn"
-                                disabled={itemState.loading}
+                                </div>
+                                <button className="add-btn"
+                                    disabled={itemState.loading}
                                 >
                                     Add Item
                                 </button>

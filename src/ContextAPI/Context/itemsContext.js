@@ -50,8 +50,9 @@ const ItemContextProvider = ( props ) => {
             countryOfSwap = e.target.countryOfSwap.value,
             swapFor = e.target.swapFor.value,
             uploadedImages = e.target.uploadedImages.files,
-            sellingStatus = e.target.sellingStatus.value,
+            sellingStatus = e.target.sellingStatus.checked,
             owner = localStorage.getItem( "id" );
+            console.log(  e.target.name.value, e.target.description.value, e.target.sellingPrice.value, e.target.category.value, e.target.cityOfSwap.value, e.target.countryOfSwap.value, e.target.swapFor.value, e.target.uploadedImages.files, e.target.sellingStatus.checked, localStorage.getItem( "id" ) );
         const item = new FormData();
         item.append( "name", name );
         item.append( "description", description );

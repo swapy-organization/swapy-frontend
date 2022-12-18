@@ -1,4 +1,5 @@
-import { Avatar, Button, Heading, HStack, VStack, Wrap, WrapItem } from "@chakra-ui/react";
+import { Avatar, Button, Heading, HStack, VStack, WrapItem } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function UserInfo ( props ) {
     return (
@@ -39,10 +40,12 @@ function UserInfo ( props ) {
                     </Heading>
                 </VStack>
                 <WrapItem>
-                    <Button 
-                    colorScheme={'blue'} 
-                    disabled={localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth') ? true : false}
-                    >Show Profile</Button>
+                    <Link to={`/profile/${props.user.id}`}>
+                        <Button
+                            colorScheme={'blue'}
+                            disabled={localStorage.getItem( 'isAuth' ) === 'false' || !localStorage.getItem( 'isAuth' ) ? true : false}
+                        >Show Profile</Button>
+                    </Link>
                 </WrapItem>
             </HStack>
         </HStack>
