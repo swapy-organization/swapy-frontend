@@ -44,6 +44,7 @@ function IndexHeader() {
       <Link to="/additem">
         <Center>
           <Button
+            top={10}
             leftIcon={<AddIcon />}
             colorScheme="teal" variant="outline">
             Add Item to Swap or Sell

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { Grid } from "@chakra-ui/react";
 import "./card.scss"
 import "./card.css"
+
+import Carousel from './Carousel';
 const Content = () => {
   const [ items, setItems ] = useState( [] );
   const getItems = async () => {
@@ -15,11 +17,9 @@ const Content = () => {
     getItems();
   }, [] );
 
-  return (
-    <Grid templateColumns='repeat(3, 1fr)' gap={6}>
-      {
-    
-    items.length > 0 ? items.map ((item, i) => {
+  //create a function to render the items on slider
+  const renderItems = () => {
+    return items.map( ( item, i ) => {
       return (
         <section className="container" key={i}>
         <div className="card" key={i}>
@@ -41,11 +41,17 @@ const Content = () => {
           </div>
         </div>
       </section>
-);
-        } ) : <>no items</>
-      }
-    </Grid>
+      );
+    } );
+  };
+
+  return (
+    <div className="content">
+      <Carousel>
+        {renderItems()}
+      </Carousel>
+    </div>
   );
 };
-export default Content;
 
+export default Content;

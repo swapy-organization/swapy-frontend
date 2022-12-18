@@ -48,3 +48,80 @@
   font-size: 5vh;
   border-radius: 10px 10px 10px 10px;
 }
+
+body {
+  background: #eee;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: black;
+  opacity: 0.2;
+}
+
+.dot.active {
+  opacity: 1;
+}
+
+.slides {
+  margin-top: 50px;
+  display: inline-block;
+  height: 370px;
+  width: 90%;
+}
+
+.slide {
+  position: absolute;
+  z-index: -1;
+  display: inline-block;
+  padding: 60px 0;
+  width: 50%;
+  height: 300px;
+  font-size: 24px;
+  left: 39%;
+  transform: scale(0.7);
+  transition: all 450ms ease;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  visibility: hidden;
+}
+
+.slides .left {
+  color: green;
+  left: 0%;
+  transform: scale(0.8);
+  z-index: 2;
+  visibility: visible;
+}
+
+.slides .center {
+  color: red;
+  z-index: 10;
+  left: 50%;
+  transform: scale(1) translateX(-50%);
+  visibility: visible;
+}
+
+.slides .right {
+  color: blue;
+  left: 100%;
+  transform: scale(0.8) translateX(-125%);
+  z-index: 1;
+  visibility: visible;
+}

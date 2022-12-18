@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import { Link } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { Flex, Box } from "@chakra-ui/react";
 import {
   Heading,

@@ -54,11 +54,11 @@ function NavBar() {
 
             <li className="nav-item">
               <Link
-                to="/services"
+                to="/about-us"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Services
+                About us
               </Link>
             </li>
             {localStorage.getItem("isAuth") === 'true' ? 

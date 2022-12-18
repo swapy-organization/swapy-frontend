@@ -20,7 +20,6 @@ const HomePage = () => {
         <Navbar />
         <IndexHeader />
         <Content />
-        <SectionExamples  />
         <SectionNucleoIcons />
         <Footer/>
         {/* <Services /> */}

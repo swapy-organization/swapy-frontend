@@ -16,6 +16,7 @@ import ListUserProfile from "./components/BuyOrSwap/listUserProfile";
 import PageNotFound from "404";
 import MyChatComponent from "chat";
 import swal from 'sweetalert';
+import LandingPage from "components/LandingPage";
 
 function App () {
   const [ isAuth, setIsAuth ] = useState( false );
@@ -56,10 +57,10 @@ function App () {
 
   return (
     <div className="App">
-      {auth.error && <ErrorHandler error={auth.error.message} />}
       <Routes>
         {/* Home Page */}
         <Route path="/" element={<HomePage />} />
+        <Route path="/about-us" element={<LandingPage />} />
         {/* Auth routes */}
         <Route exact path="/signin" element={<Signin />} />
         <Route exact path='/signup' element={<Signup />} />

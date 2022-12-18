@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Flex, Heading, Input, Button, InputGroup, Stack, InputLeftElement, Center } from "@chakra-ui/react";
-import { chakra, Box, Link, Avatar, FormControl, FormHelperText, InputRightElement } from "@chakra-ui/react";
+import { chakra, Box,Avatar, FormControl, FormHelperText, InputRightElement } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { useAuth } from "../../ContextAPI/Context/authContext";
+import { Link } from "react-router-dom";
 
 const CFaUserAlt = chakra( FaUserAlt );
 const CFaLock = chakra( FaLock );
