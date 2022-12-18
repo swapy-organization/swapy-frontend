@@ -12,14 +12,15 @@ import "assets/scss/paper-kit.scss?v=1.3.0";
 import "assets/demo/demo.css?v=1.3.0";
 import SectionNucleoIcons from "./Nucleoicons/SectionNucleoIcons";
 import Footer from "./Footer/Footer";
-/* import SectionExamples from "./Nucleoicons/SectionExamples";
- */const HomePage = () => {
+import SectionExamples from "./Nucleoicons/SectionExamples";
+
+const HomePage = () => {
   return (
     <div>
         <Navbar />
         <IndexHeader />
-        {/* <SectionExamples  /> */}
         <Content />
+        <SectionExamples  />
         <SectionNucleoIcons />
         <Footer/>
         {/* <Services /> */}

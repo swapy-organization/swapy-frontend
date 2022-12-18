@@ -1,4 +1,5 @@
 import { Button, Flex, Heading, VStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function ItemInfo ( props ) {
 
@@ -13,14 +14,14 @@ function ItemInfo ( props ) {
             <Heading
                 fontSize={'3xl'}
             >
-            <Flex
-                fontSize={'2xl'}
-                fontWeight={'bold'}
-                color={'#000'}
-                opacity={'0.5'}
-                display={'inline'}
-            >
-                Description: </Flex>
+                <Flex
+                    fontSize={'2xl'}
+                    fontWeight={'bold'}
+                    color={'#000'}
+                    opacity={'0.5'}
+                    display={'inline'}
+                >
+                    Description: </Flex>
                 {props.item.description}
             </Heading>
             <Heading
@@ -67,10 +68,14 @@ function ItemInfo ( props ) {
             >
                 {props.item.cityOfSwap} / {props.item.countryOfSwap}
             </Heading>
-            <Button 
-            colorScheme={'blue'} 
-            disabled={localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth') ? true : false}
-            >Send message</Button>
+            {props.item.user &&
+                <Link to={`/message/${props.item.user.id}`}>
+                    <Button
+                        colorScheme={'blue'}
+                        disabled={localStorage.getItem( 'isAuth' ) === 'false' || !localStorage.getItem( 'isAuth' ) ? true : false}
+                    >Send message</Button>
+                </Link>
+            }
         </VStack>
     );
 }
