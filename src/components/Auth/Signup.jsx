@@ -10,6 +10,7 @@ import {
   Center,
   Select,
   Avatar,
+  Button
 } from "@chakra-ui/react";
 import './form.css'
 import './form.scss'
@@ -97,6 +98,18 @@ export default function SignupCard() {
                 <option value="Irbid">Irbid</option>
                 <option value="Salt">Salt</option>
                 </Select>
+                <Button
+                left={310}
+                bottom={10}
+
+                borderRadius={0}
+                type="submit"
+                variant="solid"
+                colorScheme="blackAlpha"
+                width="150px"
+              >
+                Register now
+              </Button>
               <Box>
                 Already have an account?{" "}
                 <Link color="teal.500" href="/signin">
