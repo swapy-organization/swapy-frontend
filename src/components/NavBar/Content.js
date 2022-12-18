@@ -26,7 +26,7 @@ const Content = () => {
           <div className="face face1">
             <div className="content">
               <span className="stars"></span>
-              <img className="card-img" src={item.uploadedImages } alt={item.id} />
+              <img className="card-img" src={item.uploadedImages[0] } alt={item.id} />
               <h2 className="java">Owner name :</h2>
               <p className="java"> {item.name}</p>
               <h2 className="java"> Price :</h2>
