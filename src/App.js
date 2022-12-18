@@ -8,7 +8,6 @@ import UserProfile from './components/UserProfile';
 import { useEffect, useState } from 'react';
 import { useAuth } from "./ContextAPI/Context/authContext";
 import { useItem } from "./ContextAPI/Context/itemsContext";
-import ErrorHandler from "./errorNotify";
 import AddItemPage from "./components/itemsCRUD/addItem";
 import EditItemPage from "./components/itemsCRUD/editItem";
 import BuyOrSwap from "./components/BuyOrSwap/buyOrSwap";
@@ -65,12 +64,16 @@ function App () {
         <Route exact path="/signin" element={<Signin />} />
         <Route exact path='/signup' element={<Signup />} />
         {/* User routes */}
-        <Route exact path='/userprofile' element={isAuth ? <UserProfile /> : <Signin />} />
-        <Route exact path='/additem' element={isAuth ? <AddItemPage /> : <Signin />} />
-        <Route path='/edititem/:id' element={isAuth ? <EditItemPage /> : <Signin />} />
-        <Route path='/swap/:id' element={<BuyOrSwap />} />
+        if ( isAuth ) {
+          <>
+        <Route exact path='/userprofile' element=<UserProfile /> />
+        <Route exact path='/additem' element=<AddItemPage /> />
+        <Route path='/edititem/:id' element=<EditItemPage /> />
         <Route path='/message/:id' element={<MyChatComponent />} />
         <Route path='/profile/:id' element={<ListUserProfile />} />
+          </>
+        }
+        <Route path='/swap/:id' element={<BuyOrSwap />} />
         {/* 404 routes */}
         <Route path="*" element={<PageNotFound />} />
         <Route path="404" element={<PageNotFound />} />

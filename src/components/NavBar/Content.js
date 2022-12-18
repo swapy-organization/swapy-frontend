@@ -2,7 +2,6 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Grid } from "@chakra-ui/react";
 import "./card.scss"
 import "./card.css"
 

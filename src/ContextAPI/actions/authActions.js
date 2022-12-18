@@ -17,13 +17,28 @@ export const signUpAction = async ( dispatch, user ) => {
     localStorage.setItem( "id", id );
     localStorage.setItem( "username", userName );
     localStorage.setItem( "isAuth", true );
-    console.log('response', response.data.user.avatar)
     dispatch( {
       type: authActions.SIGNUP_SUCCESS,
       payload: {
         username: response.data.user.username,
       },
     } );
+    const username = response.data.user.username;
+    const data = {    
+      "username": username,
+      "first_name": response.data.user.firstName,
+      "last_name": response.data.user.lastName,
+      "secret": user.get( "password")
+    };
+    const chat = axios.post( `${process.env.REACT_APP_CHAT_ENGINE}/users/`,
+      data,
+      {
+        headers: {
+          'PRIVATE-KEY': process.env.REACT_APP_CHAT_ENGINE_PRIVATE_KEY,
+        },
+      },
+    );
+    console.log( chat );
   } catch ( error ) {
     localStorage.setItem( "isAuth", false );
     dispatch( {
