@@ -11,12 +11,15 @@ import {
   FormLabel,
   Input,
   Badge,
+  Card,
   VStack,
+  Heading
 } from '@chakra-ui/react';
 import NavBar from "./NavBar/NavBar";
 import Footer from "./Footer/Footer";
 import { Link } from "react-router-dom";
 import '../scss/UserProfile.scss'
+import { CardBody, CardFooter, CardHeader } from "reactstrap";
 
 
 function UserProfile() {
@@ -46,68 +49,75 @@ function UserProfile() {
   return (
     <>
       <NavBar />
-      <Box bg='#33383c' w='100%' p={2} color='white' m={1}>
-        <Text p={3} color="gold" fontSize={30}  > User Profile</Text>
+      <Box bg='#F5EFE6' w='100%' p={2} color='white' m={1}>
+        <Text color="#393E46" fontSize={30} marginTop={100} > User Profile</Text>
       </Box>
-
       {
         data &&
         <>
-          <Box bg={'#33383c'}>
+          <VStack bg={'#AEBDCA'}>
             {/* <Image src={data.user.avatar} p={2} alt={data.user.username} h={150} w={150} /> */}
 
 
 
-            <Box >
-
-
-              <Image p={8} borderRadius='full' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
-              <HStack>
-                <FormControl borderColor='gold' p={5} isRequired>
-                  <FormLabel fontSize="30px" color="gold">User</FormLabel>
+            <Card bg={'#7895B2'} m={20} w='25%'>
+              <CardHeader>
+                <Center>
+                  <Image p={4} borderRadius='full' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+                </Center>
+              </CardHeader>
+              <CardBody>
+                <FormControl borderColor=' #E8DFCA' p={5} isRequired>
+                  <FormLabel fontSize="30px" color="#E8DFCA">User</FormLabel>
                   <Input fontSize="20px" placeholder={data.user.username} type='text' m={1} />
-                  <FormLabel fontSize="30px" color="gold">Location</FormLabel>
+                  <FormLabel fontSize="30px" color="#E8DFCA">Location</FormLabel>
                   <Input fontSize="20px" placeholder={`${data.user.country}  / ${data.user.city}`} type='text' m={1} />
-                  <FormLabel fontSize="30px" color="gold"> Email</FormLabel>
-                  <Input fontSize="20px" placeholder={data.user.email} type='text' m={1} />
-
-                  <Button bg='gold' m={1}> Save Change</Button>
+                  <FormLabel fontSize="30px" color="#E8DFCA"> Email</FormLabel>
+                  <Input fontSize="20px" placeholder={data.user.email} type='text' m={1} /><br />
                 </FormControl>
-              </HStack>
-            </Box >
+              </CardBody>
+
+              <CardFooter>
+
+                <Button size='lg' colorScheme='blue' variant='outline' bg='#E8DFCA' m={2}> Save Change</Button>
+              </CardFooter>
+
+            </ Card>
             <Box >
-              <Badge m={20} fontSize={20} variant='solid' colorScheme='green'>{data.user.points} Points for {data.user.username}</Badge>
+              <Badge m={2} fontSize={20} variant='solid' colorScheme='green'>{data.user.points} Points for {data.user.username}</Badge>
             </Box>
-          </Box>
-          <HStack>
+          </VStack>
+          <HStack m={2}>
             {data.user.items ? data.user.items.map((item) => {
               return (
-                <Box key={item.id}
-                  bg='#33383c'
-                  w='100%'
-                  p={5}
-                  color='white'
-                  m={2}
-                  borderRadius='md'
-
-                >
+                <Card key={item.id}
+                  bg='#7895B2'
+                  w='100%'>
 
                   {item.uploadedImages && item.uploadedImages.map((image, idx) => {
                     return (
-                      <Image borderRadius='full'
-                        src={image} p={2} alt={item.name} h={230} w={230} key={idx} />
+                      <CardHeader>
+                        <Center>
+                          <Image borderRadius='full'
+                            src={image} p={2} alt={item.name} h={230} w={230} key={idx} />
+                        </Center>
+                      </CardHeader>
+
                     );
                   })}
 
-
-                  <Text color="gold" fontSize={20}>{item.name}</Text>
-                  <Text color="gold" fontSize={15}>{item.description}</Text>
-                  <Text color="gold" fontSize={15}>{item.price}</Text>
-                  <Button bg='gold' m={1} onClick={e => handleDelete(e, item.id)} color="black"> Delete Item</Button>
-                  <Link to={`/edititem/${item.id}`}>
-                    <Button bg='gold' m={1} color="black"> Edit Item</Button>
-                  </Link>
-                </Box>
+                  <CardBody>
+                    <Text as='i' color="#E8DFCA" fontSize='2xl'>{item.name}</Text>
+                    <Text as='i' color="#E8DFCA" fontSize='2xl'>{item.description}</Text>
+                    <Text as='i' color="#E8DFCA" fontSize='2xl'>{item.price}</Text>
+                  </CardBody>
+                  <CardFooter>
+                    <Button size='lg' colorScheme='blue' variant='outline' bg='#E8DFCA' m={1} onClick={e => handleDelete(e, item.id)} > Delete Item</Button>
+                    <Link to={`/edititem/${item.id}`}>
+                      <Button size='lg' colorScheme='blue' variant='outline' bg='#E8DFCA' m={1} > Edit Item</Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
               );
             }) : <Text> No Items</Text>}
           </HStack>
