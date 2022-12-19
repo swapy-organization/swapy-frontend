@@ -67,6 +67,7 @@ const Carousel = (props) => {
   return (
     <div>
       <div className="slides">
+      <div>{renderDots()}</div>
         {props.children.map((slide, index) => {
           const cn = classnames(
             'slide',
@@ -81,7 +82,6 @@ const Carousel = (props) => {
           );
         })}
       </div>
-      <div>{renderDots()}</div>
     </div>
   );
 }

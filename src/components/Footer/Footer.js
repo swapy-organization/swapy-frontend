@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import './Footer.scss';
 function Footer() {
   return (
-    <footer className="section bg-footer">
+    <footer className=" bg-footer">
     <div className="container">
       <div>
         <h6 className="footer-heading text-uppercase text-white">Informations</h6>

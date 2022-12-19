@@ -8,6 +8,7 @@ import UserProfile from './components/UserProfile';
 import { useEffect, useState } from 'react';
 import { useAuth } from "./ContextAPI/Context/authContext";
 import { useItem } from "./ContextAPI/Context/itemsContext";
+import ErrorHandler from "./errorNotify";
 import AddItemPage from "./components/itemsCRUD/addItem";
 import EditItemPage from "./components/itemsCRUD/editItem";
 import BuyOrSwap from "./components/BuyOrSwap/buyOrSwap";
@@ -16,6 +17,7 @@ import PageNotFound from "404";
 import MyChatComponent from "chat";
 import swal from 'sweetalert';
 import LandingPage from "components/LandingPage";
+import Form from "components/Auth/formv2/Form";
 
 function App () {
   const [ isAuth, setIsAuth ] = useState( false );
@@ -62,18 +64,14 @@ function App () {
         <Route path="/about-us" element={<LandingPage />} />
         {/* Auth routes */}
         <Route exact path="/signin" element={<Signin />} />
-        <Route exact path='/signup' element={<Signup />} />
+        <Route exact path='/signup' element={<Form />} />
         {/* User routes */}
-        if ( isAuth ) {
-          <>
-        <Route exact path='/userprofile' element=<UserProfile /> />
-        <Route exact path='/additem' element=<AddItemPage /> />
-        <Route path='/edititem/:id' element=<EditItemPage /> />
+        <Route exact path='/userprofile' element={isAuth ? <UserProfile /> : <Signin />} />
+        <Route exact path='/additem' element={isAuth ? <AddItemPage /> : <Signin />} />
+        <Route path='/edititem/:id' element={isAuth ? <EditItemPage /> : <Signin />} />
+        <Route path='/swap/:id' element={<BuyOrSwap />} />
         <Route path='/message/:id' element={<MyChatComponent />} />
         <Route path='/profile/:id' element={<ListUserProfile />} />
-          </>
-        }
-        <Route path='/swap/:id' element={<BuyOrSwap />} />
         {/* 404 routes */}
         <Route path="*" element={<PageNotFound />} />
         <Route path="404" element={<PageNotFound />} />

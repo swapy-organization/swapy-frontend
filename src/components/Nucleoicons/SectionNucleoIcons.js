@@ -3,15 +3,15 @@ import React from "react";
 // reactstrap components
 import { Button, Container, Row, Col } from "reactstrap";
 import "./sectionNuc.css";
-
+import './sectionNuc.scss';
 // core components
 function SectionNucleoIcons() {
   return (
     <>
       <div className="section section-dark section-nucleo-icons">
         <Container>
-          <Row>
-            <Col lg="6" md="12">
+          <div >
+            <Col  md="12">
               <h2 className="title">Letting you know</h2>
               <br />
               <p className="description">Swapy comes with the productively high quality 
@@ -22,7 +22,8 @@ function SectionNucleoIcons() {
               <br />
             </Col>
             <div className="icons-container">
-            <Col lg="6" md="12">
+              <div className="row123">
+            <Col  md="12">
               <div className="icons-container">
                 <i className="nc-icon nc-time-alarm" />
                 <i className="nc-icon nc-atom" />
@@ -42,7 +43,8 @@ function SectionNucleoIcons() {
               </div>
             </Col>
             </div>
-          </Row>
+            </div>
+          </div>
         </Container>
       </div>{" "}
     </>

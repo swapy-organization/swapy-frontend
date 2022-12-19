@@ -1,69 +1,77 @@
-import { Flex, HStack, VStack } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import NavBar from "../NavBar/NavBar";
-import ImgCarousel from "./Carousel";
-import { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
-import ItemInfo from "./itemInfo";
-import UserInfo from "./userInfo";
-import PageNotFound from "../../404";
+import { Avatar, Button, Heading, HStack, Stack, VStack, WrapItem } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-function BuyOrSwap () {
-    const { id } = useParams();
-    const [ item, setItem ] = useState( {} );
-    const [ error, setError ] = useState( false );
-    const getItem = async () => {
-        await axios.get( `${process.env.REACT_APP_BACKEND_LINK}/items/${id}` )
-            .then( res => {
-                setItem( res.data.item );
-            } ).catch( err => {
-                setError( true );
-            } );
-    };
-    useEffect( () => {
-        getItem();
-    }, [] );
-
+function UserInfo(props) {
     return (
-        <Flex
-            direction={'column'}
-            h={'100vh'}
+
+
+        props.user && <Stack
+            opacity='0.7'
+            w={'100%'}
+            bg={'azure'}
+          borderBlock='groove'
+            rounded={'md'}
+            padding='1px'
+            justifyContent='space-between'
+            h={'70%'}
+            overflow={'hidden'}
         >
-            {!error ?
-                item.user ?
-                    <>
-                        <NavBar />
-                        <HStack
-                            justifyContent={'space-around'}
-                            alignItems={'center'}
-                            p={'1.5rem'}
-                            overflow={'hidden'}
-                        >
-                            <VStack
-                                overflow={'hidden'}
-                            >
-                                <ImgCarousel imgs={item.uploadedImages} />
-                                <UserInfo user={item.user} />
-                            </VStack>
-                            <ItemInfo item={item} />
-                        </HStack>
-                    </>
-                    :
-                    <VStack
-                        h={'100vh'}
-                        justifyContent={'center'}
-                        alignItems={'center'}
+
+            <HStack
+                // w={'80%'}
+                alignItems={'center'}
+                p={'1rem'}
+            >
+                <HStack justifyItems='left'>
+                    <WrapItem   >
+                        <Avatar size="lg" name={props.user.username} src={props.user.avatar} />
+                    </WrapItem>
+                    <Heading
+                        fontSize={'xl'}
+                        fontWeight={'bold'}
+                        textColor={'black'}
+
                     >
-                        <Spinner animation="border" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </Spinner>
-                    </VStack>
-                : <PageNotFound />
-            }
-        </Flex>
+                        {props.user.username}
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                    </Heading>
+                </HStack>
+
+                <Heading
+                    fontSize={'xl'}
+                    fontWeight={'bold'}
+                    textColor={'black'}
+                    
+                >
+                    {props.user.city} / {props.user.country}
+                </Heading>
+
+            </HStack>
+            <HStack
+                justifyContent={'center'}
+                pb='10px'
+            >
+                <WrapItem>
+                    {console.log(props.user)}
+                    <Link to={`/profile/${props.user.id}`}>
+                        <Button
+                            colorScheme={'blue'}
+                            disabled={localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth') ? true : false}
+                        >Show Profile</Button>
+                    </Link>
+                </WrapItem>
+            </HStack>
+
+        </Stack>
 
     );
 }
-
-export default BuyOrSwap;
+export default UserInfo;
