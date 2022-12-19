@@ -23,7 +23,7 @@ export default function SignupCard () {
       <Center
         h="100vh"
         w="100%"
-        bgGradient={"linear(to-r, #434242, #222222)"}
+        bgGradient={"linear(to-r, #000000, #434242, #222222)"}
         width="100%"
         bgSize="cover"
         repeat="no-repeat"
@@ -56,16 +56,16 @@ export default function SignupCard () {
                 <label htmlFor="username" className="form__label">Username</label>
               </div>
               <div className="form__group field">
+                <input type="input" className="form__field" placeholder="email" id='email' required />
+                <label htmlFor="email" className="form__label">Email</label>
+              </div>
+              <div className="form__group field">
                 <input type="input" className="form__field" placeholder="firstname" id='firstname' required />
                 <label htmlFor="firstname" className="form__label">First Name</label>
               </div>
               <div className="form__group field">
                 <input type="input" className="form__field" placeholder="lastname" id='lastname' required />
                 <label htmlFor="lastname" className="form__label">Last Name</label>
-              </div>
-              <div className="form__group field">
-                <input type="input" className="form__field" placeholder="email" id='email' required />
-                <label htmlFor="email" className="form__label">Email</label>
               </div>
               <div className="form__group field">
                 <input type="input" className="form__field" placeholder="password" id='password' required />

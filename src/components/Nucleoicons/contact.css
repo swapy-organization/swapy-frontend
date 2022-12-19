@@ -39,24 +39,26 @@ textarea {
   position: relative;
 }
 
-form {
+.form-contact {
   padding: 37.5px;
   margin: 50px 0;
 }
 
-h1 {
+.h1 {
+  padding-top: 10px;
   color: #474544;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 32px !important;
+  font-weight: 700 !important;
   letter-spacing: 7px;
   text-align: center;
   text-transform: uppercase;
 }
 
 .underline {
+  padding-top: 18px;
   border-bottom: solid 2px #474544;
   margin: -0.512em auto;
-  width: 80px;
+  width: 346px;
 }
 
 .icon_wrapper {
@@ -118,8 +120,7 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
 select {
   background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
   outline: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
+ 
 }
 
 select::-ms-expand {

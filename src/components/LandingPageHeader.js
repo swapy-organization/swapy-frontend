@@ -1,7 +1,10 @@
+
 import React from "react";
-import { Container } from "reactstrap";
 
+// reactstrap components
+import { Button, Container } from "reactstrap";
 
+// core components
 
 function LandingPageHeader() {
   let pageHeader = React.createRef();
@@ -31,7 +34,10 @@ function LandingPageHeader() {
         <div className="filter" />
         <Container>
           <div className="motto text-center">
+            
           <h1 className="presentation-title">About Swapy Website</h1>
+
+           
           </div>
         </Container>
       </div>
