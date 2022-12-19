@@ -286,6 +286,7 @@ function LandingPage() {
                       name="name"
                       id="name_input"
                       required
+                      className="zaid"
                     />
                   </div>
                   <div class="email">
@@ -296,6 +297,7 @@ function LandingPage() {
                       name="email"
                       id="email_input"
                       required
+                      className="zaid"
                     />
                   </div>
                   <div class="telephone">
@@ -306,6 +308,7 @@ function LandingPage() {
                       name="telephone"
                       id="telephone_input"
                       required
+                      className="zaid"
                     />
                   </div>
                   <div class="subject">
@@ -315,6 +318,7 @@ function LandingPage() {
                       name="subject"
                       id="subject_input"
                       required
+                      className="zaid"
                     >
                       <option disabled hidden selected>
                         Subject line
@@ -333,6 +337,7 @@ function LandingPage() {
                       cols="30"
                       rows="5"
                       required
+                      className="zaid"
                     ></textarea>
                   </div>
                   <div class="submit">

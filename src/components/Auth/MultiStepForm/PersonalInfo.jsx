@@ -12,18 +12,18 @@ import {
     InputGroup
 
 } from "@chakra-ui/react";
-function PersonalInfo({ formData, setFormData }) {
-    console.log(formData)
+function PersonalInfo ( { formData, setFormData } ) {
+    console.log( formData );
     return (
         <>
             <FormControl pb="1em" borderColor="black" isRequired>
                 <InputGroup
                     variant="outline"
+                    height="35px"
                     borderRadius="5px"
                     borderBlock="cadetblue"
                     bg="#e8f0fe"
                     width="305px"
-                    height="35px"
                 >
                     <InputLeftAddon
                         pointerEvents="none"
@@ -44,11 +44,15 @@ function PersonalInfo({ formData, setFormData }) {
                         borderX="none"
                         borderBlockEnd="none"
                         borderBlock="none"
-                        pr="5rem"
                         placeholder="USERNAME"
+                        _placeholder={{
+                            color: "black",
+                            fontSize: "14px",
+                            fontWeight: "normal",
+                        }}
                         value={formData.username}
-                        onChange={(e) => {
-                            setFormData({ ...formData, username: e.target.value });
+                        onChange={( e ) => {
+                            setFormData( { ...formData, username: e.target.value } );
                         }}
                     />
                 </InputGroup>
@@ -82,11 +86,15 @@ function PersonalInfo({ formData, setFormData }) {
                         borderX="none"
                         borderBlockEnd="none"
                         borderBlock="none"
-                        pr="5rem"
                         placeholder="First Name"
+                        _placeholder={{
+                            color: "black",
+                            fontSize: "14px",
+                            fontWeight: "normal",
+                        }}
                         value={formData.firstname}
-                        onChange={(e) => {
-                            setFormData({ ...formData, firstname: e.target.value });
+                        onChange={( e ) => {
+                            setFormData( { ...formData, firstname: e.target.value } );
                         }}
                     />
                 </InputGroup>
@@ -119,11 +127,15 @@ function PersonalInfo({ formData, setFormData }) {
                         borderX="none"
                         borderBlockEnd="none"
                         borderBlock="none"
-                        pr="5rem"
                         placeholder="Last Name"
+                        _placeholder={{
+                            color: "black",
+                            fontSize: "14px",
+                            fontWeight: "normal",
+                        }}
                         value={formData.lastname}
-                        onChange={(e) => {
-                            setFormData({ ...formData, lastname: e.target.value });
+                        onChange={( e ) => {
+                            setFormData( { ...formData, lastname: e.target.value } );
                         }}
                     />
                 </InputGroup>

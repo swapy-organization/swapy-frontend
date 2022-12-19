@@ -9,17 +9,8 @@ export const useAuth = () => useContext( AuthContext );
 const AuthContextProvider = ( props ) => {
   const [ auth, dispatch ] = useReducer( authReducer, authData );
 
-  const handleSignUp = async ( e ) => {
-    e.preventDefault();
-    const username = e.target.username.value,
-      firstname = e.target.firstname.value,
-      lastname = e.target.lastname.value,
-      email = e.target.email.value,
-      password = e.target.password.value,
-      avatar = e.target.avatar.files[0],
-      country = e.target.country.value,
-      city = e.target.city.value;
-      console.log(e.target.avatar.files[0])
+  const handleSignUp = async ( obj ) => {
+    const { username, firstname, lastname, email, password, avatar, country, city } = obj;
     const user = new FormData();
     user.append( "username", username );
     user.append( "firstName", firstname );
@@ -29,7 +20,6 @@ const AuthContextProvider = ( props ) => {
     user.append( "avatar", avatar );
     user.append( "country", country );
     user.append( "city", city );
-    console.log(user.get("avatar"))
     signUpAction( dispatch, user );
   };
 

@@ -5,8 +5,7 @@ import {
     faUserTie,
     faCity,
 } from "@fortawesome/free-solid-svg-icons";
-//  import { useAuth } from "../../../ContextAPI/Context/authContext";
-
+import {Link} from 'react-router-dom'
 
 import {
     Input,
@@ -14,13 +13,9 @@ import {
     InputLeftAddon,
     InputGroup,
     Select,
-    Button,
     Box,
-    Link
-
 } from "@chakra-ui/react";
 function OtherInfo({ formData, setFormData }) {
-    //   const { handleSignUp, auth } = useAuth();
 
     return (
         <>
@@ -43,20 +38,12 @@ function OtherInfo({ formData, setFormData }) {
                             <FontAwesomeIcon color="black" icon={faUserTie} />
                         }
                     />
-                    <Input
+                    <input style={{height: "35px" , width: "300px" , border: "none" , borderRadius: "5px" , backgroundColor: "#e8f0fe" , color: "black" , fontSize: "14px" , fontWeight: "normal" , paddingLeft: "1rem" , paddingRight: "5rem"}}
                         type="file"
                         placeholder="Avatar"
-                        h="35px"
                         id="avatar"
-                        variant="filled"
-                        width="300px"
-                        borderX="none"
-                        borderBlockEnd="none"
-                        borderBlock="none"
-                        pr="5rem"
-                        value={formData.avatar}
                         onChange={(e) => {
-                            setFormData({ ...formData, avatar: e.target.value });
+                            setFormData({ ...formData, avatar: e.target.files[0] });
                         }}
                     />
                 </InputGroup>
@@ -136,26 +123,6 @@ function OtherInfo({ formData, setFormData }) {
                     </Select>
                 </InputGroup>
             </FormControl>
-
-            <Button
-                type="submit"
-                width="305px"
-                color="black"
-                height="35px"
-                bg="#d0b4fb"
-                borderX="none"
-                borderY="none"
-                boxShadow="0 0 0 3px var(--chakra-colors-purple)"
-                variant="solid"
-                // onSubmit={formData => handleSignUp(formData)}
-            > Sign up Now
-            </Button>
-            <Box>
-                Already have an account?{" "}
-                <Link color="teal.500" href="/signin">
-                    Sign in
-                </Link>
-            </Box>
         </>
     );
 }
