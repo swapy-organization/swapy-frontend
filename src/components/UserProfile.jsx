@@ -11,6 +11,7 @@ import {
   FormLabel,
   Input,
   Badge,
+  VStack,
 } from '@chakra-ui/react';
 import NavBar from "./NavBar/NavBar";
 import Footer from "./Footer/Footer";
@@ -46,35 +47,38 @@ function UserProfile() {
     <>
       <NavBar />
       <Box bg='#33383c' w='100%' p={2} color='white' m={1}>
-
         <Text p={3} color="gold" fontSize={30}  > User Profile</Text>
-
       </Box>
+
       {
         data &&
         <>
-          <HStack bg={'#33383c'}>
+          <Box bg={'#33383c'}>
             {/* <Image src={data.user.avatar} p={2} alt={data.user.username} h={150} w={150} /> */}
-            <Center>
-              <Image p={4} borderRadius='full' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
 
-            </Center>
+
+
             <Box >
-              <FormControl borderColor='gold' p={5} isRequired>
-                <FormLabel fontSize="30px" color="gold">User</FormLabel>
-                <Input fontSize="20px" placeholder={data.user.username} type='text' m={1} />
-                <FormLabel fontSize="30px" color="gold">Location</FormLabel>
-                <Input fontSize="20px" placeholder={`${data.user.country}  / ${data.user.city}`} type='text' m={1} />
-                <FormLabel fontSize="30px" color="gold"> Email</FormLabel>
-                <Input fontSize="20px" placeholder={data.user.email} type='text' m={1} />
 
-                <Button bg='gold' m={1}> Save Change</Button>
-              </FormControl>
+
+              <Image p={8} borderRadius='full' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+              <HStack>
+                <FormControl borderColor='gold' p={5} isRequired>
+                  <FormLabel fontSize="30px" color="gold">User</FormLabel>
+                  <Input fontSize="20px" placeholder={data.user.username} type='text' m={1} />
+                  <FormLabel fontSize="30px" color="gold">Location</FormLabel>
+                  <Input fontSize="20px" placeholder={`${data.user.country}  / ${data.user.city}`} type='text' m={1} />
+                  <FormLabel fontSize="30px" color="gold"> Email</FormLabel>
+                  <Input fontSize="20px" placeholder={data.user.email} type='text' m={1} />
+
+                  <Button bg='gold' m={1}> Save Change</Button>
+                </FormControl>
+              </HStack>
             </Box >
             <Box >
               <Badge m={20} fontSize={20} variant='solid' colorScheme='green'>{data.user.points} Points for {data.user.username}</Badge>
             </Box>
-          </HStack>
+          </Box>
           <HStack>
             {data.user.items ? data.user.items.map((item) => {
               return (
