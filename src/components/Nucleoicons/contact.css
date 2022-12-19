@@ -79,7 +79,7 @@ textarea {
 	width: 45%;
 }
 
-input[type='text'], [type='email'], select, textarea {
+.zaid {
 	background: none;
   border: none;
 	border-bottom: solid 2px #474544;
@@ -103,7 +103,7 @@ input[type='text'], [type='email'], select, textarea {
 	transition: all 0.3s;
 }
 
-input[type='text']:focus, [type='email']:focus, textarea:focus {
+.zaid:focus {
 	outline: none;
 	padding: 0 0 0.875em 0;
 }
