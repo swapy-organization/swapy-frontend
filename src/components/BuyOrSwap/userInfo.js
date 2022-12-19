@@ -1,54 +1,77 @@
-import { Avatar, Button, Heading, HStack, VStack, WrapItem } from "@chakra-ui/react";
+import { Avatar, Button, Heading, HStack, Stack, VStack, WrapItem } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-function UserInfo ( props ) {
+function UserInfo(props) {
     return (
-        props.user && <HStack
-            bg={'#f5f5f5'}
-            rounded={'md'}
+
+
+        props.user && <Stack
+            opacity='0.7'
             w={'100%'}
-            p={10}
-            h={'100%'}
+            bg={'azure'}
+          borderBlock='groove'
+            rounded={'md'}
+            padding='1px'
+            justifyContent='space-between'
+            h={'70%'}
             overflow={'hidden'}
-            justifyContent={'space-between'}
         >
+
             <HStack
-                w={'100%'}
-                justifyContent={'space-between'}
+                // w={'80%'}
                 alignItems={'center'}
                 p={'1rem'}
             >
-                <WrapItem>
-                    <Avatar size="lg" name={props.user.username} src={props.user.avatar} />
-                </WrapItem>
-                <VStack>
+                <HStack justifyItems='left'>
+                    <WrapItem   >
+                        <Avatar size="lg" name={props.user.username} src={props.user.avatar} />
+                    </WrapItem>
                     <Heading
                         fontSize={'xl'}
                         fontWeight={'bold'}
-                        color={'#000'}
-                        opacity={'0.5'}
+                        textColor={'black'}
+
                     >
                         {props.user.username}
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
                     </Heading>
-                    <Heading
-                        fontSize={'lg'}
-                        fontWeight={'bold'}
-                        color={'#000'}
-                        opacity={'0.5'}
-                    >
-                        {props.user.city} / {props.user.country}
-                    </Heading>
-                </VStack>
+                </HStack>
+
+                <Heading
+                    fontSize={'xl'}
+                    fontWeight={'bold'}
+                    textColor={'black'}
+                    
+                >
+                    {props.user.city} / {props.user.country}
+                </Heading>
+
+            </HStack>
+            <HStack
+                justifyContent={'center'}
+                pb='10px'
+            >
                 <WrapItem>
+                    {console.log(props.user)}
                     <Link to={`/profile/${props.user.id}`}>
                         <Button
                             colorScheme={'blue'}
-                            disabled={localStorage.getItem( 'isAuth' ) === 'false' || !localStorage.getItem( 'isAuth' ) ? true : false}
+                            disabled={localStorage.getItem('isAuth') === 'false' || !localStorage.getItem('isAuth') ? true : false}
                         >Show Profile</Button>
                     </Link>
                 </WrapItem>
             </HStack>
-        </HStack>
+
+        </Stack>
+
     );
 }
 export default UserInfo;

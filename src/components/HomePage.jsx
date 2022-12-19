@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./NavBar/NavBar";
+// import Services from "./NavBar/Services";
 import '../scss/App.scss';
 import '../scss/content.scss';
 import '../scss/navBar.scss';
@@ -11,6 +12,7 @@ import "assets/scss/paper-kit.scss?v=1.3.0";
 import "assets/demo/demo.css?v=1.3.0";
 import SectionNucleoIcons from "./Nucleoicons/SectionNucleoIcons";
 import Footer from "./Footer/Footer";
+import SectionExamples from "./Nucleoicons/SectionExamples";
 
 const HomePage = () => {
   return (
@@ -20,6 +22,7 @@ const HomePage = () => {
         <Content />
         <SectionNucleoIcons />
         <Footer/>
+        {/* <Services /> */}
     </div>
   );
 };

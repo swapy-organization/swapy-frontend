@@ -2,12 +2,16 @@ import React from 'react';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from "react-bootstrap";
-
+import {Stack} from '@chakra-ui/react'
 
 function ImgCarousel ( props ) {
 
     return (
-        <div>
+         <Stack 
+         width='600px'
+         height='100%'
+
+         >
             <Carousel fade>
                 {props.imgs && props.imgs.map( ( img, index ) => (
                     <Carousel.Item key={index}>
@@ -17,14 +21,19 @@ function ImgCarousel ( props ) {
                             alt={index + ' image of item to be swapped or sold '}
                             style={{
                                 height: '500px',
-                                width: '100%'
+                                width: '90%',
+                                borderRadius:'4%'
+                                 
+                
                             }}
                         />
                     </Carousel.Item>
                 ) )}
             </Carousel>
 
-        </div>
+         </Stack>
+
+         
     );
 };
 

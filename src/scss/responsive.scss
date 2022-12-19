@@ -1,11 +1,12 @@
-input {
-    margin-top: 0.5rem;
-  }
-  
-  input::placeholder {
-    font-weight: bold;
-    opacity: .5;
-    color: rgb(0, 0, 0);
-    font-size: 20;
-  
-  }
+@include media-sm {
+    
+}
+
+
+@include media-md {
+}
+
+@include media-lg {
+
+
+}
