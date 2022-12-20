@@ -68,7 +68,13 @@ function EditItemPage () {
             </CardBody>
             <Divider />
             <CardFooter>
-              <Button variant="solid" colorScheme="blue">
+              <Button 
+              variant="solid" 
+              colorScheme="blue"
+              position="relative"
+              left="50%"
+              transform="translateX(-50%)"
+              >
                 Buy or Swap now
               </Button>
             </CardFooter>
