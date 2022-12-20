@@ -48,7 +48,7 @@ function AddItemPage () {
                                     <label htmlFor="description" className="form__label">Description</label>
                                 </div>
                                 <div className="item">
-                                    <div className="checkbox-rect">
+                                    <div className="zaidcheck">
                                         <input type="checkbox" id="checkbox-rect1" name="sellingStatus" value="sellingStatus" />
                                         <label htmlFor="checkbox-rect1">Selling Status</label>
                                     </div>
@@ -70,16 +70,14 @@ function AddItemPage () {
                                     <input type="input" className="form__field" placeholder="countryOfSwap" name="countryOfSwap" id='countryOfSwap' required />
                                     <label htmlFor="countryOfSwap" className="form__label">Country Of Swap</label>
                                 </div>
-                                <div className="page">
-                                    <div className="select-dropdown">
-                                        <select name="cityOfSwap">
-                                            <option value="Amman">Amman</option>
-                                            <option value="Irbid">Irbid</option>
-                                            <option value="Aqapa">Aqapa</option>
-                                            <option value="Zarqa">Zarqa</option>
-                                            <option value="Mafraq">Mafraq</option>
-                                        </select>
-                                    </div>
+                                <div className="select-dropdown">
+                                    <select name="cityOfSwap">
+                                        <option value="Amman">Amman</option>
+                                        <option value="Irbid">Irbid</option>
+                                        <option value="Aqapa">Aqapa</option>
+                                        <option value="Zarqa">Zarqa</option>
+                                        <option value="Mafraq">Mafraq</option>
+                                    </select>
                                 </div>
                                 <button className="add-btn"
                                     disabled={itemState.loading}
