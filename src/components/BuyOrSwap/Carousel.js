@@ -8,7 +8,15 @@ function ImgCarousel(props) {
         <Stack
             width='600px'
             height='100%'
-
+            spacing={0}
+            direction='column'
+            justifyContent='center'
+            alignItems='center'
+            alignContent='center'
+            padding='0'
+            margin='0'
+            overflow='hidden'
+            borderRadius='4%'
         >
             <div className='container' >
                 {props.imgs && props.imgs.map((img, index) => (

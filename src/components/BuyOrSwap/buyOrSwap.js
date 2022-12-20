@@ -2,7 +2,7 @@ import { Flex, HStack, VStack, Center } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../NavBar/NavBar";
-import ImgCarousel from "./Carousel";
+import ImgCarousel from "./Slider";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import ItemInfo from "./itemInfo";
@@ -52,7 +52,7 @@ function BuyOrSwap() {
                                 // p={'1.5rem'}
                                 // overflow={'hidden'}
                                 mt='80px'
-                                opacity="0.7"
+                                opacity="0.9"
                                 boxShadow="md"
                                 alignItems="center"
                                 h="85%"
