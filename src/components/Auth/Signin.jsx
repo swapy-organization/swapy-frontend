@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Flex, Heading, Input, Button, InputGroup, Stack, InputLeftElement, Center } from "@chakra-ui/react";
-import { chakra, Box, Avatar, FormControl, FormHelperText, InputRightElement } from "@chakra-ui/react";
+import { chakra, Box, FormControl, FormHelperText, InputRightElement } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { useAuth } from "../../ContextAPI/Context/authContext";
 import { Link } from "react-router-dom";
@@ -71,7 +71,15 @@ const Signin = () => {
                   </InputRightElement>
                 </InputGroup>
                 <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
+                  <Link 
+                  to={'/about-us'} 
+                  onClick={
+                    () => {
+                      setTimeout( () => {
+                      window.scrollTo( 0, 2180 );
+                      }, 2000 );
+                  }}
+                  >forgot password?</Link>
                 </FormHelperText>
               </FormControl>
               <Button
