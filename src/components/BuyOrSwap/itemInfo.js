@@ -6,11 +6,13 @@ function ItemInfo(props) {
     return (
         props.item &&
         <VStack
-            alignItems={'left'}
+        justify={'center'}
             //   opacity='0.9'
             w={'100%'}
             bg={'azure'}
             borderBlock='groove'
+            borderBlockStartColor='#e0952e'
+            borderBlockEndColor='#e0952e'
             rounded={'md'}
             padding='1px'
             justifyContent='space-between'
@@ -21,69 +23,51 @@ function ItemInfo(props) {
             fontStyle={'italic'}
         >
             <Heading
-                fontSize={'4xl'}
+                fontSize={'5xl'}
                 fontFamily='cursive'
                 textAlign={'center'}
                 mb='10px'
                 borderBlockEnd={'inherit'}
-                 borderTop={'hidden'}
-                 
+                borderTop={'hidden'}
+                borderBlockEndColor='#e0952e'
+
             >
                 {props.item.name}
             </Heading>
             <Heading
                 fontSize={'2xl'}
-                opacity={'0.5'}
             >
-                <Flex
-                    // fontSize={'2xl'}
-                    // fontWeight={'bold'}
-                    color={'#000'}
-                    display={'inline'}
-                >
-                </Flex>
-                Description:{props.item.description}
+                Description:&nbsp; {props.item.description}
             </Heading>
+
             <Heading
                 fontSize={'2xl'}
-                opacity={'0.5'}
             >
-                <Flex
-                    fontWeight={'bold'}
-                    color={'#000'}
-                    display={'inline'}
-                    fontSize={'2xl'}
-                >Will swap for: </Flex>{props.item.swapFor}
+                Will swap for:&nbsp;{props.item.swapFor}
             </Heading>
             {props.item.sellingPrice > 0 ? (
                 <Heading
                     fontSize={'2xl'}
-                    opacity={'0.5'}
-                    color={'#000'}
+                    // opacity={'0.5'}
+                    color='black'
                 >
-                    Price: {props.item.sellingPrice}</Heading>
+                    Price:&nbsp; {props.item.sellingPrice}</Heading>
             ) : <Heading
                 fontSize={'2xl'}
-                opacity={'0.5'}
-                color={'#000'}
+                // opacity={'0.5'}
+                color='black'
             >Not for sale</Heading>}
             <Heading
                 fontSize={'2xl'}
-                opacity={'0.5'}
+            // opacity={'0.5'}
+            color='black'
             >
-                <Flex
-                    fontSize={'2xl'}
-                    fontWeight={'bold'}
-                    color={'#000'}
-                    display={'inline'}
-                >
-                    Category: </Flex>
-                {props.item.category}
+                Category: &nbsp;    {props.item.category}
             </Heading>
             <Heading
                 fontSize={'2xl'}
-                opacity={'0.5'}
-                color={'#000'}
+                // opacity={'0.5'}
+                color='black'
             >
                 {props.item.cityOfSwap} / {props.item.countryOfSwap}
             </Heading>

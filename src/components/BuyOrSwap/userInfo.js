@@ -6,10 +6,12 @@ function UserInfo(props) {
 
 
         props.user && <Stack
-            opacity='0.7'
+            // opacity='0.7'
             w={'100%'}
             bg={'azure'}
-          borderBlock='groove'
+            borderBlock='groove'
+            borderBlockStartColor='#e0952e'
+            borderBlockEndColor='#e0952e'
             rounded={'md'}
             padding='1px'
             justifyContent='space-between'
@@ -24,7 +26,7 @@ function UserInfo(props) {
             >
                 <HStack justifyItems='left'>
                     <WrapItem   >
-                        <Avatar size="lg" name={props.user.username} src={props.user.avatar} />
+                        <Avatar size="lg" bg='#e0952e' color='black' name={props.user.username} src={props.user.avatar} />
                     </WrapItem>
                     <Heading
                         fontSize={'xl'}
@@ -49,7 +51,7 @@ function UserInfo(props) {
                     fontSize={'xl'}
                     fontWeight={'bold'}
                     textColor={'black'}
-                    
+
                 >
                     {props.user.city} / {props.user.country}
                 </Heading>
