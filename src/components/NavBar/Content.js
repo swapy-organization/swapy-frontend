@@ -27,7 +27,7 @@ const Content = () => {
           <div className="face face1">
             <div className="content">
               <img className="card-img" src={item.uploadedImages[0] } alt={item.id} />
-              <h2 className="java">Owner name :</h2>
+              <h2 className="java">Item name :</h2>
               <p className="java"> {item.name}</p>
               <h2 className="java"> Price :</h2>
               <p className="java">${item.sellingPrice}</p>
@@ -35,8 +35,6 @@ const Content = () => {
               <p className="java">{item.description}</p>
               <Link to={`/swap/${item.id}`}><Button >More details</Button></Link>
             </div>
-          </div>
-          <div className="face face2">
           </div>
         </div>
       </section>

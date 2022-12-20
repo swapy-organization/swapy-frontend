@@ -123,7 +123,13 @@ function LandingPage() {
         </div>
         <div className="section section-dark text-center">
             <h1 className="title">Get to know us</h1>
-          <Container>
+            
+          <Container
+           style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}>
             <Row>
               <Col md="4">
                 <Card className="card-profile card-plain">
@@ -159,6 +165,7 @@ function LandingPage() {
                   </CardFooter>
                 </Card>
               </Col>
+              
               <Col md="4">
                 <Card className="card-profile card-plain">
                   <div className="card-avatar">
@@ -194,7 +201,9 @@ function LandingPage() {
                   </CardFooter>
                 </Card>
                 
+                
               </Col>
+              
               <Col md="4">
                 <Card className="card-profile card-plain">
                   <div className="card-avatar">
@@ -230,8 +239,9 @@ function LandingPage() {
                   </CardFooter>
                 </Card>
               </Col>
+
             </Row>
-                <Card className="card-profile card-plain">
+                <Card className="card-profile card-plain" style={{marginLeft:'2em'}}>
                   <div className="card-avatar">
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
@@ -241,13 +251,14 @@ function LandingPage() {
                     </a>
                   </div>
                   <CardBody>
+
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <div className="author">
                         <CardTitle tag="h4">Ahmad Al-Awalmeh</CardTitle>
                         <h6 className="card-category">Web Developer</h6>
                       </div>
                     </a>
-                    <p className="card-description text-center">
+                    <p className="card-description text-center" >
                       Teamwork is working together with people to achieve a
                       certain goal. Teamwork is the basic need for an
                       organization to function.
@@ -264,6 +275,7 @@ function LandingPage() {
                   </CardFooter>
                 </Card>
           </Container>
+                
         </div>
         <div className="section landing-section">
           <Container>

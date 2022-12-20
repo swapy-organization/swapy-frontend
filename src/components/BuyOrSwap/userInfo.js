@@ -24,10 +24,10 @@ function UserInfo(props) {
                 alignItems={'center'}
                 p={'1rem'}
             >
-                <HStack justifyItems='left'>
                     <WrapItem   >
-                        <Avatar size="lg" bg='#e0952e' color='black' name={props.user.username} src={props.user.avatar} />
+                        <Avatar  bg='#e0952e' color='black' name={props.user.username} src={props.user.avatar} />
                     </WrapItem>
+                <HStack justifyItems='left'>
                     <Heading
                         fontSize={'xl'}
                         fontWeight={'bold'}

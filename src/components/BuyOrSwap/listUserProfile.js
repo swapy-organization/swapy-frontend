@@ -139,9 +139,8 @@ function ListUserProfile(props) {
                                     <VStack
                                      
                                     >
-                                        <Text
-                                        >Avatar: </Text>
-                                        <Image src={user.avatar} />
+                                        <Text>Avatar: </Text>
+                                        <Image style={{marginBottom:'10rem'}} src={user.avatar} />
                                     </VStack>
 
                                 </HStack>
