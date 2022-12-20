@@ -304,7 +304,7 @@ function LandingPage() {
                     <label for="name"></label>
                     <input
                       type="text"
-                      placeholder="My number is"
+                      placeholder="Main subject is"
                       name="telephone"
                       id="telephone_input"
                       required
@@ -314,7 +314,6 @@ function LandingPage() {
                   <div class="subject">
                     <label for="subject"></label>
                     <select
-                      placeholder="Subject line"
                       name="subject"
                       id="subject_input"
                       required
@@ -323,6 +322,7 @@ function LandingPage() {
                       <option disabled hidden selected>
                         Subject line
                       </option>
+                      <option>I'd like to Change my password</option>
                       <option>I'd like to start a project</option>
                       <option>I'd like to raise a ticket</option>
                       <option>I'd like to make a proposal</option>
